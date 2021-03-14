@@ -1,11 +1,21 @@
 import { Route, Switch } from 'react-router-dom'
+import Header from './Components/Header'
+import DetailPage from './Components/DetailPage'
+import IndexPage from './Components/IndexPage'
 
 function App() {
   return (
-    <Switch>
-      <Route exact path='/detail'>Detail page</Route>
-      <Route path='/'>Index</Route>
-    </Switch>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path='/detail'>
+          <DetailPage />
+        </Route>
+        <Route path='/'>
+          <IndexPage />
+        </Route>
+      </Switch>
+    </>
   )
 }
 

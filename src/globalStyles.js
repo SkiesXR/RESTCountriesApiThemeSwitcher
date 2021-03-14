@@ -16,7 +16,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    color: ${({ theme }) => theme.color};
+    background: ${({ theme }) => theme.background};
     font-family: Nunito Sans Light, Sans-Serif;
+  }
+
+  button {
+    background: ${({ theme }) => theme.buttonBackground};
   }
 
   h1 {

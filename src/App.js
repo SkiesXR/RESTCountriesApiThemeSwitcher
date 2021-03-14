@@ -1,7 +1,12 @@
+import { Route, Switch } from 'react-router-dom'
+
 function App() {
   return (
-    <div>Placeholder text</div>
-  );
+    <Switch>
+      <Route exact path='/detail'>Detail page</Route>
+      <Route path='/'>Index</Route>
+    </Switch>
+  )
 }
 
 export default App;

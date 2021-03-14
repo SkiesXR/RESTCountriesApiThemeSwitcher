@@ -28,7 +28,7 @@ function App() {
             <DetailPage theme={selectedTheme} data={data} />
           </Route>
           <Route path='/'>
-            <IndexPage data={data} />
+            <IndexPage theme={selectedTheme} data={data} />
           </Route>
         </Switch>
       </ThemeProvider>}
@@ -37,6 +37,11 @@ function App() {
 }
 
 export default App;
+
+/* TODO:
+- Fix theme prop drilling
+- Consider integrating Redux
+*/
 
 /* Index Page */
 // Search

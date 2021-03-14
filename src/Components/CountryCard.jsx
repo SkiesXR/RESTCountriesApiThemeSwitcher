@@ -7,7 +7,10 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0);
+  background: ${({ theme }) => theme.elementBackground};
+  box-shadow: ${({ theme }) => theme.name === 'Light'
+    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
+    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
   &:hover {
     cursor: pointer;
   }
@@ -35,11 +38,11 @@ const CountryStats = styled.div`
   margin-bottom: 50px;
 `
 
-const CountryCard = ({ data }) => {
+const CountryCard = ({ data, theme }) => {
   const history = useHistory()
 
   return (
-    <CardContainer onClick={() => history.push(`/detail/${data.numericCode}`)}>
+    <CardContainer theme={theme} onClick={() => history.push(`/detail/${data.numericCode}`)}>
       <FlagImageContainer>
         <FlagImage src={data.flag} alt={`${data.name} flag`} />
       </FlagImageContainer>

@@ -10,11 +10,10 @@ const CountriesGrid = styled.div`
   padding: 0 35px;
 `
 
-const IndexPage = ({ data }) => {
-  console.log(data)
+const IndexPage = ({ data, theme }) => {
   return (
     <CountriesGrid>
-      {data.map(country => <CountryCard data={country} key={country.alpha3Code}/>)}
+      {data.map(country => <CountryCard data={country} key={country.alpha3Code} theme={theme} />)}
     </CountriesGrid>
   )
 }

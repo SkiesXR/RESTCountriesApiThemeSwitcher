@@ -6,26 +6,28 @@ import HeaderSection from './Components/HeaderSection'
 import DetailPage from './Components/DetailPage'
 import IndexPage from './Components/IndexPage'
 import GlobalStyles from './globalStyles'
-// styles
-import themes from './themes'
+// hooks
+import { useTheme } from './Theme/useTheme';
 
 function App() {
-  const [theme, setTheme] = useState('light')
-  console.log({ theme })
+  const {theme, themeLoaded} = useTheme()
+  const [selectedTheme, setSelectedTheme] = useState(theme)
 
   return (
-    <ThemeProvider theme={themes}>
-      <GlobalStyles />
-      <HeaderSection theme={theme} setTheme={setTheme}/>
-      <Switch>
-        <Route exact path='/detail'>
-          <DetailPage />
-        </Route>
-        <Route path='/'>
-          <IndexPage />
-        </Route>
-      </Switch>
-    </ThemeProvider>
+    <>
+    {themeLoaded && <ThemeProvider theme={selectedTheme}>
+        <GlobalStyles />
+        <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme}/>
+        <Switch>
+          <Route exact path='/detail'>
+            <DetailPage />
+          </Route>
+          <Route path='/'>
+            <IndexPage />
+          </Route>
+        </Switch>
+      </ThemeProvider>}
+    </>
   )
 }
 
@@ -56,3 +58,7 @@ export default App;
   // Border Countries section
     // "Border Countries"
     // Map of countries to links/buttons
+
+/* TODO:
+- Gracefully animate theme-switches
+*/

@@ -1,6 +1,6 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Rest Countries API with Color Switcher",
   "icons": [
     {
       "src": "favicon.ico",

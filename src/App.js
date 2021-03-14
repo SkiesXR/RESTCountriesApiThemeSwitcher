@@ -1,12 +1,12 @@
 import { Route, Switch } from 'react-router-dom'
-import Header from './Components/Header'
+import HeaderSection from './Components/HeaderSection'
 import DetailPage from './Components/DetailPage'
 import IndexPage from './Components/IndexPage'
 
 function App() {
   return (
     <>
-      <Header />
+      <HeaderSection />
       <Switch>
         <Route exact path='/detail'>
           <DetailPage />

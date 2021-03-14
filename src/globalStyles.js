@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
  
 const GlobalStyles = createGlobalStyle`
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   @media (max-width: 900px) {

@@ -1,4 +1,4 @@
-export const themes = {
+const themes = {
   light: {
     color: "hsl(200, 15%, 8%)",
     background: "hsl(0, 0%, 98%)",
@@ -10,3 +10,5 @@ export const themes = {
     buttonBackground: "hsl(209, 23%, 22%)",
   }
 }
+
+export default themes

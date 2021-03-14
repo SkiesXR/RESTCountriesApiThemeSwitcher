@@ -19,7 +19,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.color};
     background: ${({ theme }) => theme.bodyBackground};
     font-family: Nunito Sans Light, Sans-Serif;
-    transition: all .15s ease-in-out;
   }
 
   button {

@@ -4,15 +4,15 @@
       "id": "T_001",
       "name": "Light",
       "color": "hsl(200, 15%, 8%)",
-      "background": "hsl(0, 0%, 98%)",
-      "buttonBackground": "hsl(0, 0%, 100%)"
+      "bodyBackground": "hsl(0, 0%, 98%)",
+      "elementBackground": "hsl(0, 0%, 100%)"
     },
     "dark" : {
       "id": "T_002",
       "name": "Dark",
       "color": "hsl(0, 0%, 100%)",
-      "background": "hsl(207, 26%, 17%)",
-      "buttonBackground": "hsl(209, 23%, 22%)"
+      "bodyBackground": "hsl(207, 26%, 17%)",
+      "elementBackground": "hsl(209, 23%, 22%)"
     }
   }
 }

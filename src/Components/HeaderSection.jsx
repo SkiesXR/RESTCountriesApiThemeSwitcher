@@ -15,10 +15,14 @@ const Container = styled.div`
   };
 `
 
+const AppNameText = styled.h3`
+  user-select: none;
+`
+
 const HeaderSection = ({ theme, setTheme }) => {
   return (
     <Container theme={theme}>
-      <h3>Where in the world?</h3>
+      <AppNameText>Where in the world?</AppNameText>
       <ThemeSwitcher theme={theme} setTheme={setTheme}/>
     </Container>
   )

@@ -28,6 +28,7 @@ const LightIcon = styled(LightThemeIcon)`
 
 const ThemeText = styled.span`
   text-transform: capitalize;
+  user-select: none;
 `
 const ThemeSwitcher = ({ theme, setTheme }) => {
   const themesFromStore = getFromLS('all-themes')

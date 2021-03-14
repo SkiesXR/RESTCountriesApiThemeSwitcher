@@ -5,7 +5,6 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 35px;
 `
 
 const FlagImageContainer = styled.div`
@@ -20,8 +19,14 @@ const FlagImage = styled.img`
 `
 
 const CountryStats = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex-basis: 60%;
-  padding: 20px 25px 50px;
+  width: 100%;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 `
 
 const CountryCard = ({ data }) => {
@@ -30,7 +35,12 @@ const CountryCard = ({ data }) => {
       <FlagImageContainer>
         <FlagImage src={data.flag} alt={`${data.name} flag`} />
       </FlagImageContainer>
-      <CountryStats />
+      <CountryStats>
+        <span>{data.name}</span>
+        <span>Population: {data.population}</span>
+        <span>Region: {data.region}</span>
+        <span>Capital: {data.capital}</span>
+      </CountryStats>
     </CardContainer>
   )
 }

@@ -12,15 +12,16 @@ import { useTheme } from './Theme/useTheme';
 function App() {
   const {theme, themeLoaded} = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
+  console.log({ selectedTheme })
 
   return (
     <>
     {themeLoaded && <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
-        <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme}/>
+        <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
         <Switch>
           <Route exact path='/detail'>
-            <DetailPage />
+            <DetailPage theme={selectedTheme} />
           </Route>
           <Route path='/'>
             <IndexPage />

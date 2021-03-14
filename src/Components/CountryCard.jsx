@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
@@ -35,8 +36,10 @@ const CountryStats = styled.div`
 `
 
 const CountryCard = ({ data }) => {
+  const history = useHistory()
+
   return (
-    <CardContainer>
+    <CardContainer onClick={() => history.push(`/detail/${data.numericCode}`)}>
       <FlagImageContainer>
         <FlagImage src={data.flag} alt={`${data.name} flag`} />
       </FlagImageContainer>

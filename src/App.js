@@ -24,7 +24,7 @@ function App() {
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
         <Switch>
-          <Route exact path='/detail'>
+          <Route exact path='/detail/:id'>
             <DetailPage theme={selectedTheme} data={data} />
           </Route>
           <Route path='/'>

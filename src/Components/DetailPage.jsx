@@ -5,7 +5,7 @@ import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 
 const Container = styled.div`
   background: ${({ theme }) => theme.bodyBackground};
-  padding: 0 35px;
+  padding: 0 75px;
   margin: 50px 0;
 `
 

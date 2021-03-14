@@ -4,10 +4,10 @@ import CountryCard from './CountryCard'
 
 const CountriesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 55px 55px;
   margin-top: 100px;
-  padding: 0 35px;
+  padding: 0 75px;
 `
 
 const IndexPage = ({ data, theme }) => {

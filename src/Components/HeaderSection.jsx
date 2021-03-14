@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 35px;
+  padding: 0 75px;
   height: 75px;
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.name === 'Light'

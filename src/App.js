@@ -12,7 +12,6 @@ import { useTheme } from './Theme/useTheme';
 function App() {
   const {theme, themeLoaded} = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
-  console.log({ selectedTheme })
 
   return (
     <>

@@ -17,12 +17,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: ${({ theme }) => theme.color};
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.bodyBackground};
     font-family: Nunito Sans Light, Sans-Serif;
   }
 
   button {
-    background: ${({ theme }) => theme.buttonBackground};
+    background: ${({ theme }) => theme.elementBackground};
   }
 
   h1 {

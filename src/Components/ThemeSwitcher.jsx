@@ -46,7 +46,7 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 
   return (
     <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
-      {isLightTheme ? <LightIcon /> : <DarkIcon />}
+      {isLightTheme ? <DarkIcon /> : <LightIcon /> }
       <ThemeText>{isLightTheme ? `${dark.name} Mode` : `${light.name} Mode`}</ThemeText> 
     </ThemeSwitcherSection>
   )

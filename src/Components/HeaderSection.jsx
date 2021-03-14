@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
+import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg'
+
+const dark = 'dark'
+const light = 'light'
 
 const Container = styled.div`
   display: flex;
@@ -15,21 +19,35 @@ const ThemeSwitcherSection = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
-const Icon = styled(DarkThemeIcon) `
+const DarkIcon = styled(DarkThemeIcon)`
   width: 25px;
   height: 25px;
   margin-right: 10px;
 `
 
-const HeaderSection = () => {
+const LightIcon = styled(LightThemeIcon)`
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+`
+
+const ThemeText = styled.span`
+  text-transform: capitalize;
+`
+
+const HeaderSection = ({ theme, setTheme }) => {
   return (
     <Container>
       <h3>Where in the world?</h3>
-      <ThemeSwitcherSection>
-        <Icon/>
-        <span>Dark Mode</span> 
+      <ThemeSwitcherSection onClick={() => setTheme(theme === light ? dark : light)}>
+        {theme === light ? <LightIcon /> : <DarkIcon />}
+        <ThemeText>{`${theme} Mode`}</ThemeText> 
       </ThemeSwitcherSection>
     </Container>
   )

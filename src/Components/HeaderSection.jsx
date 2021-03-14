@@ -2,17 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-
-`
-
-const Heading = styled.h2`
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  height: 75px;
+  box-shadow: 0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0);
 `
 
 const HeaderSection = () => {
   return (
     <Container>
-      <Heading>Where in the world?</Heading>    
+      <h2>Where in the world?</h2>
+      <span>Dark Mode</span> 
     </Container>
   )
 }
@@ -21,7 +23,6 @@ export default HeaderSection
 
 /* Header Section TODOs
 
-- "Where in the world?" text
 - Theme switching section
 - Moon Icon
 

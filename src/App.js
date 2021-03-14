@@ -7,11 +7,15 @@ import DetailPage from './Components/DetailPage'
 import IndexPage from './Components/IndexPage'
 import GlobalStyles from './globalStyles'
 // hooks
+import { useFetch } from './Hooks/useFetch'
 import { useTheme } from './Theme/useTheme';
 
 function App() {
   const {theme, themeLoaded} = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
+  const res = useFetch('https://restcountries.eu/rest/v2/all', {})
+
+  if (!res) return <div>Loading...</div>
 
   return (
     <>

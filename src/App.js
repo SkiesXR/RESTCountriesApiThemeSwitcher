@@ -13,9 +13,10 @@ import { useTheme } from './Theme/useTheme';
 function App() {
   const {theme, themeLoaded} = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
-  const res = useFetch('https://restcountries.eu/rest/v2/all', {})
+  const { error, isLoading, response: data } = useFetch('https://restcountries.eu/rest/v2/all', {})
 
-  if (!res) return <div>Loading...</div>
+  if (error) return <div>Sorry! Please try again later</div>
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <>
@@ -24,10 +25,10 @@ function App() {
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
         <Switch>
           <Route exact path='/detail'>
-            <DetailPage theme={selectedTheme} />
+            <DetailPage theme={selectedTheme} data={data} />
           </Route>
           <Route path='/'>
-            <IndexPage />
+            <IndexPage data={data} />
           </Route>
         </Switch>
       </ThemeProvider>}

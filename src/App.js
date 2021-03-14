@@ -33,10 +33,6 @@ function App() {
 
 export default App;
 
-// Header
-  // "Where in the World?"
-  // Theme Switcher
-
 /* Index Page */
 // Search
 // Filter
@@ -58,7 +54,3 @@ export default App;
   // Border Countries section
     // "Border Countries"
     // Map of countries to links/buttons
-
-/* TODO:
-- Gracefully animate theme-switches
-*/

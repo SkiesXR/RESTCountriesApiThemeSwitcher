@@ -26,7 +26,7 @@ const Icon = styled(DarkThemeIcon) `
 const HeaderSection = () => {
   return (
     <Container>
-      <h2>Where in the world?</h2>
+      <h3>Where in the world?</h3>
       <ThemeSwitcherSection>
         <Icon/>
         <span>Dark Mode</span> 

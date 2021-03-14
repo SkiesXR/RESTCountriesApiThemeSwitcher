@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
 
 const Container = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ const HeaderSection = () => {
   return (
     <Container>
       <h2>Where in the world?</h2>
+      <DarkThemeIcon />
       <span>Dark Mode</span> 
     </Container>
   )
@@ -24,6 +26,5 @@ export default HeaderSection
 /* Header Section TODOs
 
 - Theme switching section
-- Moon Icon
 
 */

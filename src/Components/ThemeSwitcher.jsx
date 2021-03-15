@@ -54,7 +54,3 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 }
 
 export default ThemeSwitcher
-
-/* FIXME:
-- Active theme is reversed
-*/

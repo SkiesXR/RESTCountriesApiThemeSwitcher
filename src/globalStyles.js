@@ -41,8 +41,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: Nunito Sans Light, Sans-Serif;
   }
 
-  svg, svg * {
-    stroke: ${({ theme }) => theme.iconColor} !important;
+  svg {
+    stroke: ${({ theme }) => theme.iconColor};
+  }
+
+  input::placeholder {
+    color: ${({ theme }) => theme.placeholderTextColor};
   }
 `
  

@@ -39,21 +39,9 @@ function App() {
 export default App;
 
 /* TODO:
-- Fix theme prop drilling
-- Consider integrating Redux
+- Fix theme prop drilling / Consider integrating Redux
+- Reduce nesting in Schema.json
 */
-
-/* Index Page */
-// Search
-// Filter
-// Grid of country cards
-  // Card
-    // Flag image
-    // Country name
-    // Country details
-      // Population
-      // Region
-      // Capital
 
 /* Detail Page */
 // Back Button

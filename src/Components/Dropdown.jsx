@@ -15,6 +15,10 @@ const DropdownContainer = styled.div`
   box-shadow: ${({ theme }) => theme.name === 'Light'
     ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
     : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
+  
+  &:focus {
+    outline: none;
+  }
 `
 
 const RegionFilterLabel = styled.div`
@@ -63,7 +67,12 @@ const Dropdown = ({ onChange, regions, regionFilter, theme }) => {
   )
 
   return (
-    <DropdownContainer theme={theme} onClick={() => setIsOpen(prevState => !prevState)}>
+    <DropdownContainer
+      onBlur={() => setIsOpen(false)}
+      onClick={() => setIsOpen(prevState => !prevState)}
+      tabIndex={0}  // required for onBlur event to fire
+      theme={theme}
+    >
       <RegionFilterLabel theme={theme}>{regionFilter}</RegionFilterLabel>
       {isOpen && regions.length && <RegionOptions isOpen={isOpen} theme={theme}>{renderRegionOptions()}</RegionOptions>}
     </DropdownContainer>

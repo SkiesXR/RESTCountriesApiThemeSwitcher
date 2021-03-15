@@ -3,7 +3,8 @@ import { setToLS, getFromLS } from '../Utils/storage'
 
 export const useTheme = () => {
   const themes = getFromLS('all-themes')
-  const [theme, setTheme] = useState(themes.data.light)
+  const themeFromLS = (getFromLS('theme') && getFromLS('theme').toLowerCase()) || 'light'
+  const [theme, setTheme] = useState(themes.data[themeFromLS])
   const [themeLoaded, setThemeLoaded] = useState(false)
 
   const setMode = mode => {

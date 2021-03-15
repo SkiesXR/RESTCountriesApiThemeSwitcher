@@ -8,7 +8,7 @@ const InputAndFilterSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 75px;
+  padding: 50px 75px 0;
 `
 
 const TextInput = styled.input`

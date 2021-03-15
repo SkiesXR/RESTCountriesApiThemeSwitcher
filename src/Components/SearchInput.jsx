@@ -12,6 +12,7 @@ const SearchContainer = styled.div`
   border-radius: 5px;
   width: 375px;
   min-width: 200px;
+  height: 25px;
   background: ${({ theme }) => theme.elementBackground};
 
   &:focus, &:focus-within {

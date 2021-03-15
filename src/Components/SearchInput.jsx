@@ -52,3 +52,7 @@ const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
 }
 
 export default SearchInput
+
+/* TODO:
+- Add hover state for Search Container
+*/

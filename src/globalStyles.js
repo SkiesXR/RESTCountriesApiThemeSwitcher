@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.color};
     background: ${({ theme }) => theme.bodyBackground};
     font-family: Nunito Sans Light, Sans-Serif;
+    font-weight: 300;
   }
 
   button {

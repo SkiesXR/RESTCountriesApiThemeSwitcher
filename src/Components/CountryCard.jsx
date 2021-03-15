@@ -38,6 +38,15 @@ const CountryStats = styled.div`
   margin-bottom: 50px;
 `
 
+const CountryName = styled.h3`
+  margin-bottom: 10px;
+  margin-top: 0;
+`
+
+const CountryStat = styled.span`
+  line-height: 1.75rem;
+`
+
 const CountryCard = ({ data, theme }) => {
   const history = useHistory()
 
@@ -47,10 +56,10 @@ const CountryCard = ({ data, theme }) => {
         <FlagImage src={data.flag} alt={`${data.name} flag`} />
       </FlagImageContainer>
       <CountryStats>
-        <span>{data.name}</span>
-        <span>Population: {data.population}</span>
-        <span>Region: {data.region}</span>
-        <span>Capital: {data.capital}</span>
+        <CountryName>{data.name}</CountryName>
+        <CountryStat><b>Population: </b>{data.population}</CountryStat>
+        <CountryStat><b>Region: </b>{data.region}</CountryStat>
+        <CountryStat><b>Capital: </b>{data.capital}</CountryStat>
       </CountryStats>
     </CardContainer>
   )

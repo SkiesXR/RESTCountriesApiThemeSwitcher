@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 
@@ -29,8 +29,10 @@ const Button = styled.div`
   }
 `
 
-const DetailPage = () => {
+const DetailPage = ({ data }) => {
   const history = useHistory()
+  const { id } = useParams()
+  const country = data.find(country => country.numericCode === id)
 
   return (
     <Container>
@@ -38,6 +40,7 @@ const DetailPage = () => {
         <Icon />
         <span>Back</span>
       </Button>
+      <img src={country.flag} alt={`${country.name} flag`}/>
     </Container>
   )
 }

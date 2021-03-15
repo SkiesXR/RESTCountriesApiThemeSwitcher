@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import CountryCard from './CountryCard'
 
@@ -30,17 +30,27 @@ const IndexPage = ({ data, theme }) => {
   const [countryInputValue, setCountryInputValue] = useState('')
   const [regionFilter, setRegionFilter] = useState('Filter by Region')
 
-  // Filter country list by region and input value (if provided)
-  const filteredData = useMemo(() => {
-    const countriesFilteredByRegion = regionFilter && regionFilter !== defaultRegionFilterOption
+  // Filter countries by country
+  const filterByCountry = useCallback(countries => {
+    return countryInputValue
+      ? countries.filter(country => country.name.toLowerCase().startsWith(countryInputValue.toLowerCase()))
+      : countries
+  }, [countryInputValue])
+
+  // Filter countries by region
+  const filterByRegion = useCallback(countries => {
+    return regionFilter && regionFilter !== defaultRegionFilterOption
       ? data.filter(country => country.region === regionFilter)
       : data
-    return countryInputValue
-      ? countriesFilteredByRegion.filter(country => country.name.toLowerCase().startsWith(countryInputValue.toLowerCase()))
-      : countriesFilteredByRegion
-  }, [countryInputValue, data, regionFilter])
+  }, [data, regionFilter])
 
-  // Produce list of unique regions based on countries data
+  // Countries with filters and/or search input applied
+  const filteredData = useMemo(() => {
+    const countriesFilteredByRegion = filterByRegion(data)
+    return filterByCountry(countriesFilteredByRegion)
+  }, [data, filterByCountry, filterByRegion])
+
+  // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => {
     const theRegions = data.reduce((regions, country) => country.region && regions.indexOf(country.region) === -1
       ? [...regions, country.region]
@@ -56,8 +66,9 @@ const IndexPage = ({ data, theme }) => {
     <>
       <InputAndFilterSection>
         <TextInput
+          onChange={(e) => setCountryInputValue(e.target.value)}
           placeholder='Search for a country'
-          type='text' onChange={(e) => setCountryInputValue(e.target.value.trim())}
+          type='text'
           value={countryInputValue}
         />
         <RegionFilter onChange={(e) => setRegionFilter(e.target.value)}>

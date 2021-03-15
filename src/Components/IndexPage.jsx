@@ -67,7 +67,7 @@ const IndexPage = ({ data, theme }) => {
       <InputAndFilterSection>
         <TextInput
           onChange={(e) => setCountryInputValue(e.target.value)}
-          placeholder='Search for a country'
+          placeholder='Search for a country...'
           type='text'
           value={countryInputValue}
         />

@@ -6,6 +6,7 @@
       "color": "hsl(200, 15%, 8%)",
       "elementBackground": "hsl(0, 0%, 100%)",
       "iconColor": "#000",
+      "placeholderTextColor": "#737373",
       "name": "Light"
     },
     "dark" : {
@@ -14,6 +15,7 @@
       "color": "hsl(0, 0%, 100%)",
       "elementBackground": "hsl(209, 23%, 22%)",
       "iconColor": "#fff",
+      "placeholderTextColor": "hsl(0, 0%, 100%)",
       "name": "Dark"
     }
   }

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import CountryCard from './CountryCard'
+
+const defaultRegionFilterOption = 'Filter by Region'
 
 const InputAndFilterSection = styled.div`
   display: flex;
@@ -22,22 +24,35 @@ const CountriesGrid = styled.div`
 `
 
 const IndexPage = ({ data, theme }) => {
+  const [regionFilter, setRegionFilter] = useState('Filter by Region')
+
+  const filteredData = useMemo(() => {
+    return regionFilter && regionFilter !== defaultRegionFilterOption
+      ? data.filter(country => country.region === regionFilter)
+      : data
+  }, [data, regionFilter])
+
   const renderRegionOptions = () => {
-    const regions = data.reduce((regions, country) =>
-      regions.indexOf(country.region) === -1 ? [...regions, country.region] : regions, [])
-    return regions.map(region => <option>{region || 'Unknown'}</option>)
+    const theRegions = data.reduce((regions, country) => country.region && regions.indexOf(country.region) === -1
+      ? [...regions, country.region]
+      : regions
+    , [defaultRegionFilterOption])
+
+    return theRegions.map(region => <option value={region}>{region}</option>)
   }
+  
+  if (!data) return null
 
   return (
     <>
       <InputAndFilterSection>
         <TextInput></TextInput>
-        <RegionFilter>
+        <RegionFilter onChange={(e) => setRegionFilter(e.target.value)}>
           {data?.length && renderRegionOptions()}
         </RegionFilter>
       </InputAndFilterSection>
       <CountriesGrid>
-        {data.map(country => <CountryCard data={country} key={country.alpha3Code} theme={theme} />)}
+        {filteredData.map(country => <CountryCard data={country} key={country.alpha3Code} theme={theme} />)}
       </CountriesGrid>
     </>
   )

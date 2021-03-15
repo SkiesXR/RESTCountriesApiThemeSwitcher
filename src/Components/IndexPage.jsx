@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import CountryCard from './CountryCard'
+import Dropdown from './Dropdown'
 import SearchInput from './SearchInput'
 
 const defaultRegionFilterOption = 'Filter by Region'
@@ -10,10 +11,6 @@ const InputAndFilterSection = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 50px 75px 0;
-`
-
-const RegionFilter = styled.select`
-
 `
 
 const CountriesGrid = styled.div`
@@ -48,14 +45,15 @@ const IndexPage = ({ data, theme }) => {
     return filterByCountry(countriesFilteredByRegion)
   }, [data, filterByCountry, filterByRegion])
 
-  // Render dropdown list of unique regions based on countries data
-  const renderRegionOptions = () => {
-    const theRegions = data.reduce((regions, country) => country.region && regions.indexOf(country.region) === -1
+  // Iterate through countries, produce list of unique regions
+  const getRegionOptions = () => {
+    const options = data.reduce((regions, country) => country.region && regions.indexOf(country.region) === -1
       ? [...regions, country.region]
       : regions
     , [defaultRegionFilterOption])
 
-    return theRegions.map(region => <option value={region}>{region}</option>)
+    // exclude currently selected region filter
+    return options.filter(option => option !== regionFilter)
   }
   
   if (!data) return null
@@ -63,16 +61,33 @@ const IndexPage = ({ data, theme }) => {
   return (
     <>
       <InputAndFilterSection>
-        <SearchInput countryFilter={countryFilter} setCountryFilter={setCountryFilter} theme={theme} />
-        <RegionFilter onChange={(e) => setRegionFilter(e.target.value)}>
-          {data?.length && renderRegionOptions()}
-        </RegionFilter>
+        <SearchInput
+          countryFilter={countryFilter}
+          setCountryFilter={setCountryFilter}
+          theme={theme}
+        />
+        <Dropdown
+          onChange={setRegionFilter}
+          regionFilter={regionFilter}
+          regions={getRegionOptions()}
+          theme={theme}
+        />
       </InputAndFilterSection>
       <CountriesGrid>
-        {filteredData.map(country => <CountryCard data={country} key={country.alpha3Code} theme={theme} />)}
+        {filteredData.map(country =>
+          <CountryCard
+            data={country}
+            key={country.alpha3Code}
+            theme={theme}
+          />
+        )}
       </CountriesGrid>
     </>
   )
 }
 
 export default IndexPage
+
+IndexPage.defaultProps = {
+  data: []
+}

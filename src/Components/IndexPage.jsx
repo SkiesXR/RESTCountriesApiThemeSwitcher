@@ -8,9 +8,12 @@ const InputAndFilterSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 75px;
 `
 
-const TextInput = styled.div``
+const TextInput = styled.input`
+
+`
 const RegionFilter = styled.select`
 
 `
@@ -24,14 +27,18 @@ const CountriesGrid = styled.div`
 `
 
 const IndexPage = ({ data, theme }) => {
+  const [countryInputValue, setCountryInputValue] = useState('')
   const [regionFilter, setRegionFilter] = useState('Filter by Region')
 
-  // Filter country list by region
+  // Filter country list by region and input value (if provided)
   const filteredData = useMemo(() => {
-    return regionFilter && regionFilter !== defaultRegionFilterOption
+    const countriesFilteredByRegion = regionFilter && regionFilter !== defaultRegionFilterOption
       ? data.filter(country => country.region === regionFilter)
       : data
-  }, [data, regionFilter])
+    return countryInputValue
+      ? countriesFilteredByRegion.filter(country => country.name.toLowerCase().startsWith(countryInputValue.toLowerCase()))
+      : countriesFilteredByRegion
+  }, [countryInputValue, data, regionFilter])
 
   // Produce list of unique regions based on countries data
   const renderRegionOptions = () => {
@@ -48,7 +55,11 @@ const IndexPage = ({ data, theme }) => {
   return (
     <>
       <InputAndFilterSection>
-        <TextInput></TextInput>
+        <TextInput
+          placeholder='Search for a country'
+          type='text' onChange={(e) => setCountryInputValue(e.target.value.trim())}
+          value={countryInputValue}
+        />
         <RegionFilter onChange={(e) => setRegionFilter(e.target.value)}>
           {data?.length && renderRegionOptions()}
         </RegionFilter>

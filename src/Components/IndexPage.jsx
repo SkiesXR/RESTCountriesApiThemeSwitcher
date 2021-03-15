@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import CountryCard from './CountryCard'
+import SearchInput from './SearchInput'
 
 const defaultRegionFilterOption = 'Filter by Region'
 
@@ -11,9 +12,6 @@ const InputAndFilterSection = styled.div`
   padding: 50px 75px 0;
 `
 
-const TextInput = styled.input`
-
-`
 const RegionFilter = styled.select`
 
 `
@@ -27,15 +25,15 @@ const CountriesGrid = styled.div`
 `
 
 const IndexPage = ({ data, theme }) => {
-  const [countryInputValue, setCountryInputValue] = useState('')
   const [regionFilter, setRegionFilter] = useState('Filter by Region')
+  const [countryFilter, setCountryFilter] = useState('')
 
   // Filter countries by country
   const filterByCountry = useCallback(countries => {
-    return countryInputValue
-      ? countries.filter(country => country.name.toLowerCase().startsWith(countryInputValue.toLowerCase()))
+    return countryFilter
+      ? countries.filter(country => country.name.toLowerCase().startsWith(countryFilter.toLowerCase()))
       : countries
-  }, [countryInputValue])
+  }, [countryFilter])
 
   // Filter countries by region
   const filterByRegion = useCallback(countries => {
@@ -65,12 +63,7 @@ const IndexPage = ({ data, theme }) => {
   return (
     <>
       <InputAndFilterSection>
-        <TextInput
-          onChange={(e) => setCountryInputValue(e.target.value)}
-          placeholder='Search for a country...'
-          type='text'
-          value={countryInputValue}
-        />
+        <SearchInput countryFilter={countryFilter} setCountryFilter={setCountryFilter} theme={theme} />
         <RegionFilter onChange={(e) => setRegionFilter(e.target.value)}>
           {data?.length && renderRegionOptions()}
         </RegionFilter>

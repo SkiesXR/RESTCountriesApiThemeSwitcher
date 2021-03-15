@@ -40,7 +40,6 @@ export default App;
 
 /* TODO:
 - Fix theme prop drilling / Consider integrating Redux
-- Reduce nesting in Schema.json
 */
 
 /* Detail Page */

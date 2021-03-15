@@ -33,7 +33,7 @@ const ThemeText = styled.span`
 `
 const ThemeSwitcher = ({ theme, setTheme }) => {
   const themesFromStore = getFromLS('all-themes')
-  const { data: { dark , light } } = themesFromStore
+  const { dark , light } = themesFromStore
   const { setMode } = useTheme()
   
   if (!theme) return null

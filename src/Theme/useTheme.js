@@ -4,7 +4,7 @@ import { setToLS, getFromLS } from '../Utils/storage'
 export const useTheme = () => {
   const themes = getFromLS('all-themes')
   const themeFromLS = (getFromLS('theme') && getFromLS('theme').toLowerCase()) || 'light'
-  const [theme, setTheme] = useState(themes.data[themeFromLS])
+  const [theme, setTheme] = useState(themes[themeFromLS])
   const [themeLoaded, setThemeLoaded] = useState(false)
 
   const setMode = mode => {
@@ -14,7 +14,7 @@ export const useTheme = () => {
 
   useEffect(() =>{
     const localTheme = getFromLS('theme')
-    localTheme ? setTheme(localTheme) : setTheme(themes.data.light)
+    localTheme ? setTheme(localTheme) : setTheme(themes.light)
     setThemeLoaded(true)
   }, [])
 

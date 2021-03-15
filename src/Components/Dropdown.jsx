@@ -34,9 +34,12 @@ const RegionOptions = styled.div`
   position: absolute;
   top: 50px;
   left: 0;
-  background: ${({ theme }) => theme.elementBackground};
   font-size: .8rem;
   animation: ${fadeIn} .25s ease-in;
+  background: ${({ theme }) => theme.elementBackground};
+  box-shadow: ${({ theme }) => theme.name === 'Light'
+    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
+    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
 `
 
 const RegionOption = styled.div`
@@ -55,7 +58,7 @@ const Dropdown = ({ onChange, regions, regionFilter, theme }) => {
   // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => (
     regions.map(region =>
-      <RegionOption theme={theme} onClick={() => onChange(region)}>{region}</RegionOption>
+      <RegionOption key={region} theme={theme} onClick={() => onChange(region)}>{region}</RegionOption>
     )
   )
 

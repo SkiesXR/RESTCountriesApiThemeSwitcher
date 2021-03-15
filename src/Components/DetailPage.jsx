@@ -29,11 +29,11 @@ const Button = styled.div`
   }
 `
 
-const DetailPage = ({ theme }) => {
+const DetailPage = () => {
   const history = useHistory()
 
   return (
-    <Container theme={theme}>
+    <Container>
       <Button onClick={() => history.push('/')}>
         <Icon />
         <span>Back</span>

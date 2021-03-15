@@ -24,12 +24,8 @@ function App() {
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
         <Switch>
-          <Route exact path='/detail/:id'>
-            <DetailPage theme={selectedTheme} data={data} />
-          </Route>
-          <Route path='/'>
-            <IndexPage theme={selectedTheme} data={data} />
-          </Route>
+          <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
+        <Route path='/'><IndexPage data={data} /></Route>
         </Switch>
       </ThemeProvider>}
     </>
@@ -37,10 +33,6 @@ function App() {
 }
 
 export default App;
-
-/* TODO:
-- Fix theme prop drilling / Consider integrating Redux
-*/
 
 /* Detail Page */
 // Back Button

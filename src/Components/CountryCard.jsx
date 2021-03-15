@@ -49,11 +49,11 @@ const CountryStat = styled.span`
   line-height: 1.75rem;
 `
 
-const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  }, theme }) => {
+const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  } }) => {
   const history = useHistory()
 
   return (
-    <CardContainer theme={theme} onClick={() => history.push(`/detail/${numericCode}`)}>
+    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)}>
       <FlagImageContainer>
         <FlagImage src={flag} alt={`${name} flag`} />
       </FlagImageContainer>

@@ -21,7 +21,7 @@ const CountriesGrid = styled.div`
   padding: 0 75px;
 `
 
-const IndexPage = ({ data, theme }) => {
+const IndexPage = ({ data }) => {
   const [regionFilter, setRegionFilter] = useState('Filter by Region')
   const [countryFilter, setCountryFilter] = useState('')
 
@@ -64,13 +64,11 @@ const IndexPage = ({ data, theme }) => {
         <SearchInput
           countryFilter={countryFilter}
           setCountryFilter={setCountryFilter}
-          theme={theme}
         />
         <Dropdown
           onChange={setRegionFilter}
           regionFilter={regionFilter}
           regions={getRegionOptions()}
-          theme={theme}
         />
       </InputAndFilterSection>
       <CountriesGrid>
@@ -78,7 +76,6 @@ const IndexPage = ({ data, theme }) => {
           <CountryCard
             data={country}
             key={country.alpha3Code}
-            theme={theme}
           />
         )}
       </CountriesGrid>

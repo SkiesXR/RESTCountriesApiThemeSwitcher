@@ -56,13 +56,13 @@ const RegionOption = styled.div`
   }
 `
 
-const Dropdown = ({ onChange, regions, regionFilter, theme }) => {
+const Dropdown = ({ onChange, regions, regionFilter }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => (
     regions.map(region =>
-      <RegionOption key={region} theme={theme} onClick={() => onChange(region)}>{region}</RegionOption>
+      <RegionOption key={region} onClick={() => onChange(region)}>{region}</RegionOption>
     )
   )
 
@@ -71,10 +71,9 @@ const Dropdown = ({ onChange, regions, regionFilter, theme }) => {
       onBlur={() => setIsOpen(false)}
       onClick={() => setIsOpen(prevState => !prevState)}
       tabIndex={0}  // required for onBlur event to fire
-      theme={theme}
     >
-      <RegionFilterLabel theme={theme}>{regionFilter}</RegionFilterLabel>
-      {isOpen && regions.length && <RegionOptions isOpen={isOpen} theme={theme}>{renderRegionOptions()}</RegionOptions>}
+      <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
+      {isOpen && regions.length && <RegionOptions isOpen={isOpen}>{renderRegionOptions()}</RegionOptions>}
     </DropdownContainer>
   )
 }

@@ -40,7 +40,7 @@ const TextInput = styled.input`
   }
 `
 
-const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
+const SearchInput = ({ countryFilter, setCountryFilter }) => {
   const textInputRef = useRef()
 
   return (
@@ -50,7 +50,6 @@ const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
         onChange={(e) => setCountryFilter(e.target.value)}
         placeholder='Search for a country...'
         ref={textInputRef}
-        theme={theme}
         type='text'
         value={countryFilter}
       />

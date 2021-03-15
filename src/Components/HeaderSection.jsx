@@ -21,7 +21,7 @@ const AppNameText = styled.h3`
 
 const HeaderSection = ({ theme, setTheme }) => {
   return (
-    <Container theme={theme}>
+    <Container>
       <AppNameText>Where in the world?</AppNameText>
       <ThemeSwitcher theme={theme} setTheme={setTheme}/>
     </Container>

@@ -8,9 +8,9 @@ const SearchContainer = styled.div`
   box-shadow: ${({ theme }) => theme.name === 'Light'
     ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
     : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
-  padding: 10px 25px;
+  padding: 15px 25px;
   border-radius: 5px;
-  width: 300px;
+  width: 375px;
   min-width: 200px;
   background: ${({ theme }) => theme.elementBackground};
 
@@ -22,6 +22,10 @@ const SearchContainer = styled.div`
 const SearchIcon = styled(Icon)`
   width: 25px;
   margin-right: 15px;
+
+  * {
+    stroke: #dfdfdf;
+  }
 `
 
 const TextInput = styled.input`

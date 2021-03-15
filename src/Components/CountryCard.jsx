@@ -47,19 +47,19 @@ const CountryStat = styled.span`
   line-height: 1.75rem;
 `
 
-const CountryCard = ({ data, theme }) => {
+const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  }, theme }) => {
   const history = useHistory()
 
   return (
-    <CardContainer theme={theme} onClick={() => history.push(`/detail/${data.numericCode}`)}>
+    <CardContainer theme={theme} onClick={() => history.push(`/detail/${numericCode}`)}>
       <FlagImageContainer>
-        <FlagImage src={data.flag} alt={`${data.name} flag`} />
+        <FlagImage src={flag} alt={`${name} flag`} />
       </FlagImageContainer>
       <CountryStats>
-        <CountryName>{data.name}</CountryName>
-        <CountryStat><b>Population: </b>{data.population}</CountryStat>
-        <CountryStat><b>Region: </b>{data.region}</CountryStat>
-        <CountryStat><b>Capital: </b>{data.capital}</CountryStat>
+        <CountryName>{name}</CountryName>
+        <CountryStat><b>Population: </b>{population}</CountryStat>
+        <CountryStat><b>Region: </b>{region}</CountryStat>
+        <CountryStat><b>Capital: </b>{capital}</CountryStat>
       </CountryStats>
     </CardContainer>
   )

@@ -29,6 +29,7 @@ const LightIcon = styled(LightThemeIcon)`
 const ThemeText = styled.span`
   text-transform: capitalize;
   user-select: none;
+  font-weight: 400;
 `
 const ThemeSwitcher = ({ theme, setTheme }) => {
   const themesFromStore = getFromLS('all-themes')
@@ -46,10 +47,14 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 
   return (
     <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
-      {isLightTheme ? <DarkIcon /> : <LightIcon /> }
-      <ThemeText>{isLightTheme ? `${dark.name} Mode` : `${light.name} Mode`}</ThemeText> 
+      {isLightTheme ? <LightIcon /> : <DarkIcon /> }
+      <ThemeText>{isLightTheme ? `${light.name} Mode` : `${dark.name} Mode` }</ThemeText> 
     </ThemeSwitcherSection>
   )
 }
 
 export default ThemeSwitcher
+
+/* FIXME:
+- Active theme is reversed
+*/

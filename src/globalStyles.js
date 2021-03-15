@@ -40,6 +40,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.25rem;
     font-family: Nunito Sans Light, Sans-Serif;
   }
+
+  svg, svg * {
+    stroke: ${({ theme }) => theme.iconColor} !important;
+  }
 `
  
 export default GlobalStyles

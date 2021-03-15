@@ -14,8 +14,10 @@ const SearchContainer = styled.div`
   min-width: 200px;
   background: ${({ theme }) => theme.elementBackground};
 
-  &:focus {
-    input
+  &:focus, &:focus-within {
+    box-shadow: ${({ theme }) => theme.name === 'Light'
+    ? '0px 10px 13px -7px #bcbcbc, 5px 5px 15px 5px rgba(0,0,0,0)'
+    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
   }
 `
 
@@ -56,7 +58,3 @@ const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
 }
 
 export default SearchInput
-
-/* TODO:
-- Add hover state for Search Container
-*/

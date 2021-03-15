@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as Icon } from '../Assets/Images/search.svg'
 
@@ -13,6 +13,10 @@ const SearchContainer = styled.div`
   width: 300px;
   min-width: 200px;
   background: ${({ theme }) => theme.elementBackground};
+
+  &:focus {
+    input
+  }
 `
 
 const SearchIcon = styled(Icon)`
@@ -30,15 +34,18 @@ const TextInput = styled.input`
 `
 
 const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
+  const textInputRef = useRef()
+
   return (
-    <SearchContainer>
+    <SearchContainer onClick={() => textInputRef.current.focus()}>
       <SearchIcon />
       <TextInput
         onChange={(e) => setCountryFilter(e.target.value)}
         placeholder='Search for a country...'
+        ref={textInputRef}
+        theme={theme}
         type='text'
         value={countryFilter}
-        theme={theme}
       />
     </SearchContainer>
   );

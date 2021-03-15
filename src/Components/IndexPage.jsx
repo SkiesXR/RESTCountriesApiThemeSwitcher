@@ -26,12 +26,14 @@ const CountriesGrid = styled.div`
 const IndexPage = ({ data, theme }) => {
   const [regionFilter, setRegionFilter] = useState('Filter by Region')
 
+  // Filter country list by region
   const filteredData = useMemo(() => {
     return regionFilter && regionFilter !== defaultRegionFilterOption
       ? data.filter(country => country.region === regionFilter)
       : data
   }, [data, regionFilter])
 
+  // Produce list of unique regions based on countries data
   const renderRegionOptions = () => {
     const theRegions = data.reduce((regions, country) => country.region && regions.indexOf(country.region) === -1
       ? [...regions, country.region]

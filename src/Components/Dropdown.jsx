@@ -14,6 +14,7 @@ const DropdownContainer = styled.div`
   cursor: pointer;
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
 
   &:focus {
     outline: none;
@@ -22,9 +23,12 @@ const DropdownContainer = styled.div`
 
 const RegionFilterLabel = styled.div`
   width: 100%;
-  font-size: .8rem;
   background: ${({ theme }) => theme.elementBackground};
   user-select: none;
+
+  @media (min-width: 576px) {
+    font-size: 1rem;
+  }
 `
 
 const RegionOptions = styled.div`
@@ -45,12 +49,21 @@ const RegionOptions = styled.div`
 `
 
 const RegionOption = styled.div`
-  width: calc(100% - 10px);
-  padding-left: 10px;
+  width: calc(100% - 25px);
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   user-select: none;
+  font-size: 1.25rem;
+  line-height: 2rem;
 
-  &:hover {
-    background: ${({ theme }) => theme.filterBackgroundHover};
+  @media (min-width: 576px) {
+    font-size: 1rem;
+    line-height: 1.75rem;
+
+    &:hover {
+      background: ${({ theme }) => theme.filterBackgroundHover};
+    }
   }
 `
 

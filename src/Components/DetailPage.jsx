@@ -34,10 +34,12 @@ const Button = styled.div`
   font-size: .8rem;
   transition: all .15s ease-in;
 
-  &:hover {
-    cursor: pointer;
-    background: ${({ theme }) => theme.filterBackgroundHover};
-  }
+  @media (min-width: 576px) {
+    &:hover {
+      cursor: pointer;
+      background: ${({ theme }) => theme.filterBackgroundHover};
+    }
+  } 
 `
 
 const CountryContainer = styled.div`

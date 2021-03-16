@@ -7,8 +7,13 @@ import DataPair from './DataPair'
 
 const Container = styled.div`
   background: ${({ theme }) => theme.bodyBackground};
-  padding: 0 75px;
-  margin: 50px 0;
+  padding: 0 20px;
+  margin: 2rem 0;
+
+  @media (min-width: 576px) {
+    padding: 0 75px;
+    margin: 50px 0;
+  }  
 `
 
 const Icon = styled(BackArrow)`
@@ -37,15 +42,26 @@ const Button = styled.div`
 
 const CountryContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   margin-top: 50px;
+
+  @media (min-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }  
 `
 
 const FlagImageContainer = styled.div`
-  max-width: 600px;
-  width: 50%;
+  width: calc(100% - 20px);
   box-shadow: ${({ theme }) => theme.boxShadow};
+
+  @media (min-width: 576px) {
+    max-width: 600px;
+    width: 50%;
+  }  
 `
 
 const FlagImage = styled.img`

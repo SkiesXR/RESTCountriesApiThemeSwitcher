@@ -13,7 +13,8 @@ const DropdownContainer = styled.div`
   position: relative;
   cursor: pointer;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  
+  border-radius: 5px;
+
   &:focus {
     outline: none;
   }
@@ -23,7 +24,6 @@ const RegionFilterLabel = styled.div`
   width: 100%;
   font-size: .8rem;
   background: ${({ theme }) => theme.elementBackground};
-  border-radius: 5px;
   user-select: none;
 `
 

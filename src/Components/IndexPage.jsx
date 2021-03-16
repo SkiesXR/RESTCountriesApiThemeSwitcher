@@ -11,7 +11,7 @@ const InputAndFilterSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 25px 0;
+  padding: 2.5rem 25px 0;
 
   @media (min-width: 576px) {
     display: flex;
@@ -23,11 +23,19 @@ const InputAndFilterSection = styled.div`
 `
 
 const CountriesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 55px 55px;
-  margin-top: 100px;
-  padding: 0 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 3rem;
+
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 55px 55px;
+    margin-top: 100px;
+    padding: 0 75px;
+  }
 `
 
 const IndexPage = ({ data }) => {

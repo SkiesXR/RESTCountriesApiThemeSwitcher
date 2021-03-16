@@ -17,6 +17,12 @@ const CardContainer = styled.div`
       cursor: pointer;
       transform: translateY(-5%);
     }
+
+  @media (max-width: 576px) {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }  
 `
 
 const FlagImageContainer = styled.div`

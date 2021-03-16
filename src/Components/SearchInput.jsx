@@ -16,7 +16,12 @@ const SearchContainer = styled.div`
   &:focus, &:focus-within {
     box-shadow: ${({ theme }) => theme.name === 'Light'
     ? '0px 10px 13px -7px #bcbcbc, 5px 5px 15px 5px rgba(0,0,0,0)'
-    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
+    : '0 1px 2px rgba(0,0,0,0.07)', 
+    '0 2px 4px rgba(0,0,0,0.07)', 
+    '0 4px 8px rgba(0,0,0,0.07)', 
+    '0 8px 16px rgba(0,0,0,0.07)',
+    '0 16px 32px rgba(0,0,0,0.07)', 
+    '0 32px 64px rgba(0,0,0,0.07)'};
   }
 `
 
@@ -32,9 +37,15 @@ const SearchIcon = styled(Icon)`
 const TextInput = styled.input`
   border: none;
   background: none;
+  caret-color: ${({ theme }) => theme.cursorColor};
+  color: ${({ theme }) => theme.color};
+  
+  ::placeholder { opacity: .5; }
 
   &:focus {
     outline: none;
+
+    &::placeholder {opacity: .8; }
   }
 `
 

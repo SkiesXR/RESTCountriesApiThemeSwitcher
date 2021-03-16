@@ -20,10 +20,11 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
+  width: fit-content;
   padding: 7px 15px;
   border-radius: 5px;
   background: ${({ theme }) => theme.elementBackground};
+  font-size: .8rem;
 
   &:hover {
     cursor: pointer;
@@ -49,7 +50,8 @@ const FlagImage = styled.img`
 `
 
 const DetailsContainer = styled.div`
-  padding: 25px 50px;
+  padding-top: 25px;
+  padding-left: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,7 +60,7 @@ const DetailsContainer = styled.div`
 `
 
 const Name = styled.h2`
-  display: block;
+  width: 100%;
 `
 
 const Detail = styled.span`
@@ -66,11 +68,23 @@ const Detail = styled.span`
 `
 
 const BorderCountriesSection = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 
+  div {
+    margin-top: 10px;
+    font-size: .8rem;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
 `
 
 const BorderText = styled.span`
-
+  margin-right: 20px;
 `
 
 const DetailPage = ({ data }) => {

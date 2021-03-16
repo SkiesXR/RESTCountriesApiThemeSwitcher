@@ -85,18 +85,22 @@ const DetailPage = ({ data }) => {
     const country = data.find(country => country.numericCode === id)
     if (country) {
       setCountry(country)
-
-      // Identify border countries, store them in state
-      const borderCodes = Object.values(country.borders)
-      const borderCountriesObj = borderCodes.reduce((acc, border) => {
-        const borderedCountry = data.find(country => country.alpha3Code === border)
-        return borderedCountry
-          ? { ...acc, [borderedCountry.name]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
-          : acc
-      }, {})
-      setBorderCountries(borderCountriesObj)
+      setBorderCountries(generateBorderCountries(country))
     }
   }, [data, id])
+
+  // Build a collection of border countries
+  // Shape = { countryName: { name: countryName, code: numericCode } }
+  const generateBorderCountries = (country) => {
+    const borderCodes = Object.values(country.borders)
+
+    return borderCodes.reduce((acc, border) => {
+      const borderedCountry = data.find(country => country.alpha3Code === border)
+      return borderedCountry
+        ? { ...acc, [borderedCountry.name]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
+        : acc
+    }, {})
+  }
 
   if (!Object.keys(country).length) return null
 

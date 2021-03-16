@@ -11,16 +11,18 @@ const CardContainer = styled.div`
   border-radius: 5px;
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
-  transition: transform .15s ease-in;
-    
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 576px) {
+    margin-bottom: 0;
+    transition: transform .15s ease-in;
+
     &:hover {
       cursor: pointer;
       transform: translateY(-5%);
-    }
-
-  @media (max-width: 576px) {
-    &:not(:last-child) {
-      margin-bottom: 2rem;
     }
   }  
 `

@@ -7,7 +7,7 @@ import DataPair from './DataPair'
 
 const Container = styled.div`
   background: ${({ theme }) => theme.bodyBackground};
-  padding: 0 20px;
+  padding: 0 25px;
   margin: 2rem 0;
 
   @media (min-width: 576px) {
@@ -55,7 +55,8 @@ const CountryContainer = styled.div`
 `
 
 const FlagImageContainer = styled.div`
-  width: calc(100% - 20px);
+  width: 100%;
+  margin-bottom: 2rem;
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (min-width: 576px) {
@@ -68,16 +69,26 @@ const FlagImage = styled.img`
   margin-right: 75px;
   object-fit: cover;
   width: 100%;
-`
+` 
 
 const DetailsContainer = styled.div`
-  padding-top: 25px;
-  padding-left: 50px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
-  width: 50%;
+  width: 100%;
+
+  span {
+    line-height: 2rem;
+  }
+
+  @media (min-width: 576px) {
+    padding-top: 25px;
+    padding-left: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+  }  
 `
 
 const Name = styled.h2`
@@ -87,17 +98,24 @@ const Name = styled.h2`
 `
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
-  margin-bottom: 3rem;
+
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+    margin-bottom: 3rem;
+  }  
 `
 
 const BorderCountriesSection = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
 
@@ -109,6 +127,14 @@ const BorderCountriesSection = styled.div`
       margin-right: 10px;
     }
   }
+
+  @media (min-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }  
 `
 
 const BorderText = styled.span`

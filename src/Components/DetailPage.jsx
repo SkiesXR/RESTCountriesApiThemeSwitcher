@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
@@ -76,14 +76,38 @@ const BorderText = styled.span`
 const DetailPage = ({ data }) => {
   const history = useHistory()
   const { id } = useParams()
-  const country = data.find(country => country.numericCode === id)
+  const [country, setCountry] = useState({})
+  const [borderCountries, setBorderCountries] = useState({})
   const { capital, currencies, flag, languages, name, nativeName, population, region, subregion, topLevelDomain } = country
-  // console.log(country)
-  if (!data || !data?.length ) return null
+
+  useEffect(() => {
+    const country = data.find(country => country.numericCode === id)
+    if (country) {
+      setCountry(country)
+
+      // Identify border countries, store them in state
+      const borderCodes = Object.values(country.borders)
+      const borderCountriesObj = borderCodes.reduce((acc, border) => {
+        const borderedCountry = data.find(country => country.alpha3Code === border)
+        return borderedCountry
+          ? { ...acc, [borderedCountry]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
+          : acc
+      }, {})
+      setBorderCountries(borderCountriesObj)
+    }
+  }, [data, id])
+
+  if (!Object.keys(country).length) return null
 
   const renderCurrencies = () => currencies.map(cur => cur.code).join(', ')
   const renderLanguages = () => languages.map(lang => lang.name).join(', ')
-  const renderBorderCountries = () => null // TODO: add logic
+
+  // Render a list of buttons linking to border countries
+  const renderBorderCountries = () => Object.values(borderCountries).map(country => (
+    <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)}>
+      {country.name}
+    </Button>)
+  )
 
   return (
     <Container>

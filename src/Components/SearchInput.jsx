@@ -49,27 +49,34 @@ const TextInput = styled.input`
   caret-color: ${({ theme }) => theme.cursorColor};
   color: ${({ theme }) => theme.color};
   
-  ::placeholder { opacity: .25; }
+  ::placeholder { opacity: .8; }
 
   &:focus {
     outline: none;
 
-    &::placeholder {opacity: .5; }
+    &::placeholder {opacity: 1; }
   }
 `
 
 const SearchInput = ({ countryFilter, setCountryFilter }) => {
   const textInputRef = useRef()
 
+  const handleChange = (e) => {
+    const { value } = e.target
+    // allow blank input or alphabet characters
+    if (value === '' || value.match(/[A-Za-z]/g)) setCountryFilter(value)
+  }
+
   return (
     <SearchContainer onClick={() => textInputRef.current.focus()}>
       <SearchIcon />
       <TextInput
-        onChange={(e) => setCountryFilter(e.target.value)}
+        onChange={handleChange}
         placeholder='Search for a country...'
         ref={textInputRef}
         type='text'
         value={countryFilter}
+        autofocus='true'
       />
     </SearchContainer>
   );

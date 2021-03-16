@@ -5,9 +5,7 @@ import { ReactComponent as Icon } from '../Assets/Images/search.svg'
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  box-shadow: ${({ theme }) => theme.name === 'Light'
-    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
-    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 15px 25px;
   border-radius: 5px;
   width: 375px;

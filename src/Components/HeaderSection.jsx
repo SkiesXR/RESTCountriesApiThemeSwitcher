@@ -9,10 +9,7 @@ const Container = styled.div`
   padding: 0 75px;
   height: 75px;
   background: ${({ theme }) => theme.elementBackground};
-  box-shadow: ${({ theme }) => theme.name === 'Light'
-    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
-    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'
-  };
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
 const AppNameText = styled.h3`

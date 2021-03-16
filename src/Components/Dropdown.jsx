@@ -12,9 +12,7 @@ const DropdownContainer = styled.div`
   background: ${({ theme }) => theme.elementBackground};
   position: relative;
   cursor: pointer;
-  box-shadow: ${({ theme }) => theme.name === 'Light'
-    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
-    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   
   &:focus {
     outline: none;
@@ -35,15 +33,15 @@ const RegionOptions = styled.div`
   align-items: flex-start;
   line-height: 1.75rem;
   width: 100%;
+  border-radius: 5px;
   position: absolute;
   top: 50px;
   left: 0;
+  z-index: 2;
   font-size: .8rem;
   animation: ${fadeIn} .25s ease-in;
   background: ${({ theme }) => theme.elementBackground};
-  box-shadow: ${({ theme }) => theme.name === 'Light'
-    ? '0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)'
-    : '0px 10px 13px -12px #232323, 5px 5px 15px 5px rgba(0,0,0,0)'};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
 const RegionOption = styled.div`

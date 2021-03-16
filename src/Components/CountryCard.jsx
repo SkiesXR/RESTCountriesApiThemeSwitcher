@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { numberWithCommas } from '../Utils/format'
+import DataPair from './DataPair'
 
 const CardContainer = styled.div`
   display: flex;
@@ -45,10 +46,6 @@ const CountryName = styled.h3`
   margin-top: 0;
 `
 
-const CountryStat = styled.span`
-  line-height: 1.75rem;
-`
-
 const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  } }) => {
   const history = useHistory()
 
@@ -59,9 +56,9 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
       </FlagImageContainer>
       <CountryStats>
         <CountryName>{name}</CountryName>
-        <CountryStat><b>Population: </b>{numberWithCommas(population)}</CountryStat>
-        <CountryStat><b>Region: </b>{region}</CountryStat>
-        <CountryStat><b>Capital: </b>{capital}</CountryStat>
+        <DataPair label='Population'>{numberWithCommas(population)}</DataPair>
+        <DataPair label='Region'>{region}</DataPair>
+        <DataPair label='Capital'>{capital}</DataPair>
       </CountryStats>
     </CardContainer>
   )

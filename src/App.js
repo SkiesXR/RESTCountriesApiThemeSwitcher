@@ -46,12 +46,20 @@ WRAPPING UP THE BASICS
 
 OPTIONAL ADD-ONS
 - Speech Recognition
+- Create mixins to reduce code
+- Create CSS constants
+
+CLEANUP
+- Organize imports
+- Organize CSS
+- Organize file hierarchy & naming
 
 TESTING
 - Test on major browsers: Chrome, Firefox, Safari, Edge
 - Test on mobile & tablet
 
 BUILD
+- Gzip
 - Prod build
 - Heroku deployment
 

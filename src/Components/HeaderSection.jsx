@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import ThemeSwitcher from './ThemeSwitcher'
 
@@ -18,12 +19,15 @@ const Container = styled.div`
 
 const AppNameText = styled.h3`
   user-select: none;
+  &:hover { cursor: pointer; }
 `
 
 const HeaderSection = ({ theme, setTheme }) => {
+  const history = useHistory()
+
   return (
     <Container>
-      <AppNameText>Where in the world?</AppNameText>
+      <AppNameText onClick={() => history.push('/')}>Where in the world?</AppNameText>
       <ThemeSwitcher theme={theme} setTheme={setTheme}/>
     </Container>
   )

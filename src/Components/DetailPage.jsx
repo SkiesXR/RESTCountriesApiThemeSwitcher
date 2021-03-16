@@ -25,9 +25,11 @@ const Button = styled.div`
   border-radius: 5px;
   background: ${({ theme }) => theme.elementBackground};
   font-size: .8rem;
+  transition: all .15s ease-in;
 
   &:hover {
     cursor: pointer;
+    background: ${({ theme }) => theme.filterBackgroundHover};
   }
 `
 

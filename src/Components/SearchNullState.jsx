@@ -9,5 +9,3 @@ const SearchNullState = () => {
 }
 
 export default SearchNullState
-
-// TODO: Add design for null state

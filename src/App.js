@@ -34,12 +34,27 @@ function App() {
 
 export default App;
 
-/* Detail Page */
-// Back Button
-// Country Flag
-// Country Details
-  // Header
-  // Details
-  // Border Countries section
-    // "Border Countries"
-    // Map of countries to links/buttons
+/* TODO:
+WRAPPING UP THE BASICS
+- Add down arrow to region filter dropdown
+- Finalize icons
+- Fix theme-switching for icons & theme text
+- Finalize box-shadow(s) for light theme
+- Null State (search) component
+- Error message for API error
+- Loader component / design
+
+OPTIONAL ADD-ONS
+- Speech Recognition
+
+TESTING
+- Test on major browsers: Chrome, Firefox, Safari, Edge
+- Test on mobile & tablet
+
+BUILD
+- Prod build
+- Heroku deployment
+
+POST-BUILD
+- READme
+*/

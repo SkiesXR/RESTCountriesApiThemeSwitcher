@@ -29,10 +29,60 @@ const Button = styled.div`
   }
 `
 
+const CountryContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+`
+
+const FlagImageContainer = styled.div`
+  max-width: 600px;
+  width: 50%;
+`
+
+const FlagImage = styled.img`
+  margin-right: 75px;
+  object-fit: cover;
+  width: 100%;
+`
+
+const DetailsContainer = styled.div`
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+`
+
+const CountryName = styled.h2`
+  display: block;
+`
+
+const CountryStat = styled.span`
+
+`
+
+const BorderCountriesSection = styled.div`
+
+`
+
+const BorderText = styled.span`
+
+`
+
 const DetailPage = ({ data }) => {
   const history = useHistory()
   const { id } = useParams()
   const country = data.find(country => country.numericCode === id)
+  const { capital, currencies, flag, languages, name, nativeName, population, region, subregion, topLevelDomain } = country
+  // console.log(country)
+  if (!data || !data?.length ) return null
+
+  const renderCurrencies = () => currencies.map(cur => cur.code).join(', ')
+  const renderLanguages = () => languages.map(lang => lang.name).join(', ')
+  const renderBorderCountries = () => null // TODO: add logic
 
   return (
     <Container>
@@ -40,7 +90,26 @@ const DetailPage = ({ data }) => {
         <Icon />
         <span>Back</span>
       </Button>
-      <img src={country.flag} alt={`${country.name} flag`}/>
+      <CountryContainer>
+        <FlagImageContainer>
+          <FlagImage src={flag} alt={`${name} flag`} />
+        </FlagImageContainer>
+        <DetailsContainer>
+          <CountryName>{name}</CountryName>
+          <CountryStat>{nativeName}</CountryStat>
+          <CountryStat>{topLevelDomain}</CountryStat>
+          <CountryStat>{population}</CountryStat>
+          <CountryStat>{renderCurrencies()}</CountryStat>
+          <CountryStat>{region}</CountryStat>
+          <CountryStat>{renderLanguages()}</CountryStat>
+          <CountryStat>{subregion}</CountryStat>
+          <CountryStat>{capital}</CountryStat>
+          <BorderCountriesSection>
+            <BorderText>BorderCountries: </BorderText>
+            {renderBorderCountries()}
+          </BorderCountriesSection>
+        </DetailsContainer>
+      </CountryContainer>
     </Container>
   )
 }

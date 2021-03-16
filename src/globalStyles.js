@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle`
   input::placeholder {
     color: ${({ theme }) => theme.placeholderTextColor};
   }
+
+  span {
+    line-height: 1.75rem;
+  }
 `
  
 export default GlobalStyles

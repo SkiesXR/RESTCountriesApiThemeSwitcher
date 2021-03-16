@@ -40,12 +40,12 @@ const TextInput = styled.input`
   caret-color: ${({ theme }) => theme.cursorColor};
   color: ${({ theme }) => theme.color};
   
-  ::placeholder { opacity: .5; }
+  ::placeholder { opacity: .25; }
 
   &:focus {
     outline: none;
 
-    &::placeholder {opacity: .8; }
+    &::placeholder {opacity: .5; }
   }
 `
 

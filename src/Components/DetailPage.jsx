@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
+import { numberWithCommas } from '../Utils/format'
 
 const Container = styled.div`
   background: ${({ theme }) => theme.bodyBackground};
@@ -56,11 +57,11 @@ const DetailsContainer = styled.div`
   width: 50%;
 `
 
-const CountryName = styled.h2`
+const Name = styled.h2`
   display: block;
 `
 
-const CountryStat = styled.span`
+const Detail = styled.span`
 
 `
 
@@ -95,17 +96,17 @@ const DetailPage = ({ data }) => {
           <FlagImage src={flag} alt={`${name} flag`} />
         </FlagImageContainer>
         <DetailsContainer>
-          <CountryName>{name}</CountryName>
-          <CountryStat>{nativeName}</CountryStat>
-          <CountryStat>{topLevelDomain}</CountryStat>
-          <CountryStat>{population}</CountryStat>
-          <CountryStat>{renderCurrencies()}</CountryStat>
-          <CountryStat>{region}</CountryStat>
-          <CountryStat>{renderLanguages()}</CountryStat>
-          <CountryStat>{subregion}</CountryStat>
-          <CountryStat>{capital}</CountryStat>
+          <Name>{name}</Name>
+          <Detail><b>Native Name: </b>{nativeName}</Detail>
+          <Detail><b>Top Level Domain: </b>{topLevelDomain}</Detail>
+          <Detail><b>Population: </b>{numberWithCommas(population)}</Detail>
+          <Detail><b>Currencies: </b>{renderCurrencies()}</Detail>
+          <Detail><b>Region: </b>{region}</Detail>
+          <Detail><b>Languages: </b>{renderLanguages()}</Detail>
+          <Detail><b>Sub Region: </b>{subregion}</Detail>
+          <Detail><b>Capital: </b>{capital}</Detail>
           <BorderCountriesSection>
-            <BorderText>BorderCountries: </BorderText>
+            <BorderText><b>BorderCountries:</b> </BorderText>
             {renderBorderCountries()}
           </BorderCountriesSection>
         </DetailsContainer>

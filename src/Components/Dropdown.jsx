@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { ReactComponent as DropdownIcon } from '../Assets/Images/arrow.svg'
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateX(-10%); };
@@ -16,9 +17,13 @@ const DropdownContainer = styled.div`
   border-radius: 5px;
   -webkit-tap-highlight-color: transparent;
 
-  &:focus {
-    outline: none;
-  }
+  &:focus { outline: none; }
+`
+
+const DropdownHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const RegionFilterLabel = styled.div`
@@ -29,6 +34,13 @@ const RegionFilterLabel = styled.div`
   @media (min-width: 576px) {
     font-size: 1rem;
   }
+`
+
+const StyledIcon = styled(DropdownIcon)`
+  width: 20px;
+  transform: rotate(180deg);
+
+    * { stroke: ${({ theme }) => theme.color}; }
 `
 
 const RegionOptions = styled.div`
@@ -61,9 +73,7 @@ const RegionOption = styled.div`
     font-size: 1rem;
     line-height: 1.75rem;
 
-    &:hover {
-      background: ${({ theme }) => theme.filterBackgroundHover};
-    }
+    &:hover { background: ${({ theme }) => theme.filterBackgroundHover}; }
   }
 `
 
@@ -83,7 +93,10 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
       onClick={() => setIsOpen(prevState => !prevState)}
       tabIndex={0}  // required for onBlur event to fire
     >
-      <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
+      <DropdownHeader>
+        <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
+        <StyledIcon />
+      </DropdownHeader>
       {isOpen && regions.length && <RegionOptions isOpen={isOpen}>{renderRegionOptions()}</RegionOptions>}
     </DropdownContainer>
   )

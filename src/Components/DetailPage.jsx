@@ -64,6 +64,15 @@ const DetailsContainer = styled.div`
 
 const Name = styled.h2`
   width: 100%;
+  margin-bottom: 2rem;
+`
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
 `
 
 const BorderCountriesSection = styled.div`
@@ -149,14 +158,16 @@ const DetailPage = ({ data }) => {
         </FlagImageContainer>
         <DetailsContainer>
           <Name>{name}</Name>
-          <DataPair label='Native Name'>{nativeName}</DataPair>
-          <DataPair label='Top Level Domain'>{topLevelDomain}</DataPair>
-          <DataPair label='Population'>{numberWithCommas(population)}</DataPair>
-          <DataPair label='Currencies'>{renderCurrencies()}</DataPair>
-          <DataPair label='Region'>{region}</DataPair>
-          <DataPair label='Languages'>{renderLanguages()}</DataPair>
-          <DataPair label='Sub Region'>{subregion}</DataPair>
-          <DataPair label='Capital'>{capital}</DataPair>
+          <Grid>
+            <DataPair label='Native Name'>{nativeName}</DataPair>
+            <DataPair label='Top Level Domain'>{topLevelDomain}</DataPair>
+            <DataPair label='Population'>{numberWithCommas(population)}</DataPair>
+            <DataPair label='Currencies'>{renderCurrencies()}</DataPair>
+            <DataPair label='Region'>{region}</DataPair>
+            <DataPair label='Languages'>{renderLanguages()}</DataPair>
+            <DataPair label='Sub Region'>{subregion}</DataPair>
+            <DataPair label='Capital'>{capital}</DataPair>
+          </Grid>
           <BorderCountriesSection>
           {Object.keys(borderCountries).length ? renderBorderCountries() : null}
           </BorderCountriesSection>

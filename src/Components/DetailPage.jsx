@@ -85,6 +85,7 @@ const BorderCountriesSection = styled.div`
 
 const BorderText = styled.div`
   margin-right: 20px;
+  font-weight: bold;
 `
 
 const DetailPage = ({ data }) => {
@@ -130,7 +131,7 @@ const DetailPage = ({ data }) => {
 
     return (
       <>
-        <BorderText><b>Border Countries: </b></BorderText>
+        <BorderText>Border Countries: </BorderText>
         {borders}
       </>
     )

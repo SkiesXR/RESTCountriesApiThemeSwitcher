@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
@@ -96,7 +96,19 @@ const DetailPage = ({ data }) => {
   const [country, setCountry] = useState({})
   const [borderCountries, setBorderCountries] = useState({})
   const { capital, currencies, flag, languages, name, nativeName, population, region, subregion, topLevelDomain } = country
-  console.log(borderCountries)
+
+  // Build a collection of border countries
+  // Shape = { countryName: { name: countryName, code: numericCode } }
+  const generateBorderCountries = useCallback((country) => {
+    const borderCodes = Object.values(country.borders)
+
+    return borderCodes.reduce((acc, border) => {
+      const borderedCountry = data.find(country => country.alpha3Code === border)
+      return borderedCountry && borderedCountry.numericCode
+        ? { ...acc, [borderedCountry.name]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
+        : acc
+    }, {})
+  }, [data])
 
   useEffect(() => {
     const country = data.find(country => country.numericCode === id)
@@ -104,20 +116,7 @@ const DetailPage = ({ data }) => {
       setCountry(country)
       setBorderCountries(generateBorderCountries(country))
     }
-  }, [data, id])
-
-  // Build a collection of border countries
-  // Shape = { countryName: { name: countryName, code: numericCode } }
-  const generateBorderCountries = (country) => {
-    const borderCodes = Object.values(country.borders)
-
-    return borderCodes.reduce((acc, border) => {
-      const borderedCountry = data.find(country => country.alpha3Code === border)
-      return borderedCountry
-        ? { ...acc, [borderedCountry.name]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
-        : acc
-    }, {})
-  }
+  }, [data, generateBorderCountries, id])
 
   if (!Object.keys(country).length) return null
 

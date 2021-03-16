@@ -49,7 +49,6 @@ OPTIONAL ADD-ONS
 - Create CSS constants
 
 CLEANUP
-- Organize imports
 - Organize CSS
 - Organize file hierarchy & naming
 

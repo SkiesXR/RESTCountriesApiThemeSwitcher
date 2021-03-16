@@ -6,12 +6,21 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  padding: 15px 25px;
+  padding: 1rem 20px;
   border-radius: 5px;
-  width: 375px;
-  min-width: 200px;
-  height: 25px;
+  height: 1.5rem;
   background: ${({ theme }) => theme.elementBackground};
+  margin-right: 0;
+  margin-bottom: 2.5rem;
+  max-width: 375px;
+  width: calc(100% - 40px);
+
+  @media (min-width: 576px) {
+    width: 375px;
+    min-width: 200px;
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
 
   &:focus, &:focus-within {
     box-shadow: ${({ theme }) => theme.name === 'Light'

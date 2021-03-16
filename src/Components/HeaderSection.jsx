@@ -6,10 +6,14 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 75px;
+  padding: 0 20px;
   height: 75px;
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
+
+  @media (min-width: 576px) {
+    padding: 0 75px;
+  }
 `
 
 const AppNameText = styled.h3`

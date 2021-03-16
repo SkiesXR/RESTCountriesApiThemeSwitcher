@@ -7,7 +7,7 @@ const fadeIn = keyframes`
 `
 
 const DropdownContainer = styled.div`
-  width: 100px;
+  width: 140px;
   padding: 15px 25px;
   background: ${({ theme }) => theme.elementBackground};
   position: relative;

@@ -9,9 +9,17 @@ const defaultRegionFilterOption = 'Filter by Region'
 
 const InputAndFilterSection = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 50px 75px 0;
+  padding: 50px 25px 0;
+
+  @media (min-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 75px 0;
+  }
 `
 
 const CountriesGrid = styled.div`

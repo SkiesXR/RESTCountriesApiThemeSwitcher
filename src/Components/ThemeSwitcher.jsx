@@ -1,8 +1,13 @@
 import styled from "styled-components"
+// hooks
 import { useTheme } from '../Theme/useTheme'
+// utils
 import { getFromLS } from '../Utils/storage'
+// icons
 import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
 import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg'
+
+/* Styles Begin */
 
 const ThemeSwitcherSection = styled.div `
   display: flex;
@@ -31,6 +36,9 @@ const ThemeText = styled.span`
   user-select: none;
   font-weight: 400;
 `
+
+/* Styles End */
+
 const ThemeSwitcher = ({ theme, setTheme }) => {
   const themesFromStore = getFromLS('all-themes')
   const { dark , light } = themesFromStore

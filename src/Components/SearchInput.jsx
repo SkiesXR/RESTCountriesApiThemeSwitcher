@@ -1,6 +1,9 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+// icons
 import { ReactComponent as Icon } from '../Assets/Images/search.svg'
+
+/* Styles Begin */
 
 const SearchContainer = styled.div`
   display: flex;
@@ -57,6 +60,8 @@ const TextInput = styled.input`
     &::placeholder {opacity: 1; }
   }
 `
+
+/* Styles End */
 
 const SearchInput = ({ countryFilter, setCountryFilter }) => {
   const textInputRef = useRef()

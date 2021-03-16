@@ -1,9 +1,14 @@
 import React, { useCallback, useState, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
-import { numberWithCommas } from '../Utils/format'
+import { useHistory, useParams } from 'react-router-dom'
+// components
 import DataPair from './DataPair'
+// utils
+import { numberWithCommas } from '../Utils/format'
+// icons
+import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
+
+/* Styles Begin */
 
 const Container = styled.div`
   background: ${({ theme }) => theme.bodyBackground};
@@ -41,6 +46,7 @@ const Button = styled.div`
     }
   } 
 `
+/* Styles End */
 
 const CountryContainer = styled.div`
   display: flex;

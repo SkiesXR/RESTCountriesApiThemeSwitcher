@@ -1,8 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { numberWithCommas } from '../Utils/format'
+import { useHistory } from 'react-router-dom'
+// components
 import DataPair from './DataPair'
+// utils
+import { numberWithCommas } from '../Utils/format'
+
+/* Styles Begin */
 
 const CardContainer = styled.div`
   display: flex;
@@ -54,6 +58,7 @@ const CountryName = styled.h3`
   margin-bottom: 10px;
   margin-top: 0;
 `
+/* Styles End */
 
 const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  } }) => {
   const history = useHistory()

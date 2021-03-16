@@ -36,7 +36,6 @@ export default App;
 
 /* TODO:
 WRAPPING UP THE BASICS
-- Add down arrow to region filter dropdown
 - Finalize icons
 - Fix theme-switching for icons & theme text
 - Finalize box-shadow(s) for light theme

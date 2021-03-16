@@ -1,11 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
+// components
 import CountryCard from './CountryCard'
 import Dropdown from './Dropdown'
 import SearchInput from './SearchInput'
 import SearchNullState from './SearchNullState'
 
-const defaultRegionFilterOption = 'Filter by Region'
+/* Styles Begin */
 
 const InputAndFilterSection = styled.div`
   display: flex;
@@ -38,8 +39,12 @@ const CountriesGrid = styled.div`
   }
 `
 
+/* Styles End */
+
+const defaultRegionFilterOption = 'Filter by Region'
+
 const IndexPage = ({ data }) => {
-  const [regionFilter, setRegionFilter] = useState('Filter by Region')
+  const [regionFilter, setRegionFilter] = useState(defaultRegionFilterOption)
   const [countryFilter, setCountryFilter] = useState('')
 
   // Filter countries by country

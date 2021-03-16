@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+// icons
 import { ReactComponent as DropdownIcon } from '../Assets/Images/arrow.svg'
+
+/* Styles Begin */
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateX(-10%); };
@@ -76,6 +79,8 @@ const RegionOption = styled.div`
     &:hover { background: ${({ theme }) => theme.filterBackgroundHover}; }
   }
 `
+
+/* Styles End */
 
 const Dropdown = ({ onChange, regions, regionFilter }) => {
   const [isOpen, setIsOpen] = useState(false)

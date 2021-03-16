@@ -1,7 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+// components
 import ThemeSwitcher from './ThemeSwitcher'
+
+/* Styles Begin */
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +24,8 @@ const AppNameText = styled.h3`
   user-select: none;
   &:hover { cursor: pointer; }
 `
+
+/* Styles End */
 
 const HeaderSection = ({ theme, setTheme }) => {
   const history = useHistory()

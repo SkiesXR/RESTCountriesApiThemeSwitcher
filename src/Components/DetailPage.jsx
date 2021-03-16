@@ -25,6 +25,7 @@ const Button = styled.div`
   padding: 7px 15px;
   border-radius: 5px;
   background: ${({ theme }) => theme.elementBackground};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: .8rem;
   transition: all .15s ease-in;
 
@@ -37,13 +38,14 @@ const Button = styled.div`
 const CountryContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 50px;
 `
 
 const FlagImageContainer = styled.div`
   max-width: 600px;
   width: 50%;
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
 const FlagImage = styled.img`
@@ -65,6 +67,7 @@ const DetailsContainer = styled.div`
 const Name = styled.h2`
   width: 100%;
   margin-bottom: 2rem;
+  margin-top: 0;
 `
 
 const Grid = styled.div`
@@ -92,7 +95,7 @@ const BorderCountriesSection = styled.div`
   }
 `
 
-const BorderText = styled.div`
+const BorderText = styled.span`
   margin-right: 20px;
   font-weight: bold;
 `

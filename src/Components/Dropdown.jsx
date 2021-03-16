@@ -14,10 +14,10 @@ const DropdownContainer = styled.div`
   width: 140px;
   padding: 15px 25px;
   background: ${({ theme }) => theme.elementBackground};
-  position: relative;
   cursor: pointer;
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 5px;
+  position: relative;
   -webkit-tap-highlight-color: transparent;
 
   &:focus { outline: none; }
@@ -54,7 +54,7 @@ const RegionOptions = styled.div`
   width: 100%;
   border-radius: 5px;
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 0;
   z-index: 2;
   font-size: .8rem;

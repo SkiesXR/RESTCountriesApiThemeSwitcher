@@ -74,6 +74,7 @@ const BorderCountriesSection = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 
   div {
     margin-top: 10px;
@@ -85,7 +86,7 @@ const BorderCountriesSection = styled.div`
   }
 `
 
-const BorderText = styled.span`
+const BorderText = styled.div`
   margin-right: 20px;
 `
 
@@ -124,11 +125,15 @@ const DetailPage = ({ data }) => {
   const renderLanguages = () => languages.map(lang => lang.name).join(', ')
 
   // Render a list of buttons linking to border countries
-  const renderBorderCountries = () => Object.values(borderCountries).map(country => (
-    <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)}>
-      {country.name}
-    </Button>)
-  )
+  const renderBorderCountries = () => {
+    const borders = Object.values(borderCountries).map(country => (
+      <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)}>
+        {country.name}
+      </Button>
+    ))
+
+    return <BorderText><b>BorderCountries: </b>{borders}</BorderText>
+  }
 
   return (
     <Container>
@@ -151,8 +156,7 @@ const DetailPage = ({ data }) => {
           <Detail><b>Sub Region: </b>{subregion}</Detail>
           <Detail><b>Capital: </b>{capital}</Detail>
           <BorderCountriesSection>
-            <BorderText><b>BorderCountries:</b> </BorderText>
-            {renderBorderCountries()}
+          {Object.keys(borderCountries).length ? renderBorderCountries() : null}
           </BorderCountriesSection>
         </DetailsContainer>
       </CountryContainer>

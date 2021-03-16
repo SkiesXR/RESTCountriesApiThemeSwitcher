@@ -79,6 +79,7 @@ const DetailPage = ({ data }) => {
   const [country, setCountry] = useState({})
   const [borderCountries, setBorderCountries] = useState({})
   const { capital, currencies, flag, languages, name, nativeName, population, region, subregion, topLevelDomain } = country
+  console.log(borderCountries)
 
   useEffect(() => {
     const country = data.find(country => country.numericCode === id)
@@ -90,7 +91,7 @@ const DetailPage = ({ data }) => {
       const borderCountriesObj = borderCodes.reduce((acc, border) => {
         const borderedCountry = data.find(country => country.alpha3Code === border)
         return borderedCountry
-          ? { ...acc, [borderedCountry]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
+          ? { ...acc, [borderedCountry.name]: { name: borderedCountry.name, code: borderedCountry.numericCode } }
           : acc
       }, {})
       setBorderCountries(borderCountriesObj)

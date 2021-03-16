@@ -128,7 +128,12 @@ const DetailPage = ({ data }) => {
       </Button>
     ))
 
-    return <BorderText><b>BorderCountries: </b>{borders}</BorderText>
+    return (
+      <>
+        <BorderText><b>Border Countries: </b></BorderText>
+        {borders}
+      </>
+    )
   }
 
   return (

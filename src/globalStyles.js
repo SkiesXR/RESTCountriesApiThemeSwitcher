@@ -26,6 +26,11 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.elementBackground};
   }
 
+  img {
+    user-drag: none;
+    user-select: none;
+  }
+
   h1 {
     font-size: 3rem;
     font-family: Nunito Sans ExtraBold, Sans-Serif;

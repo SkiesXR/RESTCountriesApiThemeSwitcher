@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import CountryCard from './CountryCard'
 import Dropdown from './Dropdown'
 import SearchInput from './SearchInput'
+import SearchNullState from './SearchNullState'
 
 const defaultRegionFilterOption = 'Filter by Region'
 
@@ -72,12 +73,16 @@ const IndexPage = ({ data }) => {
         />
       </InputAndFilterSection>
       <CountriesGrid>
-        {filteredData.map(country =>
-          <CountryCard
-            data={country}
-            key={country.alpha3Code}
-          />
-        )}
+        {filteredData.length
+          ? (
+            filteredData.map(country =>
+              <CountryCard
+                data={country}
+                key={country.alpha3Code}
+              />
+            )
+          ) : <SearchNullState />
+      }
       </CountriesGrid>
     </>
   )

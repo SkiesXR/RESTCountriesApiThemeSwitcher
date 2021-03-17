@@ -98,6 +98,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
   // Support keyboard navigation, handle side effects
   const handleKeyDown = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     // "enter" key
     if (e.key === 'Enter') return setIsOpen(prevState => !prevState)
     // "down" arrow

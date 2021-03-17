@@ -51,8 +51,8 @@ const CountryStats = styled.div`
   flex-direction: column;
   align-items: flex-start;
   flex-basis: 60%;
-  width: 100%;
-  margin-left: 40px;
+  width: calc(100% - 20px);
+  margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
 `
@@ -67,7 +67,7 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
   const history = useHistory()
 
   return (
-    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)}>
+    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)} tabIndex='0' >
       <FlagImageContainer>
         <FlagImage src={flag} alt={`${name} flag`} />
       </FlagImageContainer>

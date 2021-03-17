@@ -41,7 +41,8 @@ const RegionFilterLabel = styled.div`
 
 const StyledIcon = styled(DropdownIcon)`
   width: 20px;
-  transform: rotate(180deg);
+  transform: ${({ isDropdownOpen }) => !isDropdownOpen && 'rotate(180deg)'};
+  transition: transform .25s ease-in;
 
     * { stroke: ${({ theme }) => theme.color}; }
 `
@@ -100,7 +101,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     >
       <DropdownHeader>
         <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
-        <StyledIcon />
+        <StyledIcon isDropdownOpen={isOpen}/>
       </DropdownHeader>
       {isOpen && regions.length && <RegionOptions isOpen={isOpen}>{renderRegionOptions()}</RegionOptions>}
     </DropdownContainer>

@@ -91,7 +91,14 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
   // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => (
     regions.map((region, index) =>
-      <RegionOption active={optionIndex === index} key={region} onClick={() => onChange(region)} role='option'>{region}</RegionOption>
+      <RegionOption
+        active={optionIndex === index}
+        key={region}
+        onClick={() => onChange(region)}
+        role='option'
+      >
+        {region}
+      </RegionOption>
     )
   )
 

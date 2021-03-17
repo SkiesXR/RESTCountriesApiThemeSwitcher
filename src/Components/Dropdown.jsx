@@ -41,7 +41,7 @@ const RegionFilterLabel = styled.div`
 
 const StyledIcon = styled(DropdownIcon)`
   width: 20px;
-  transform: ${({ isDropdownOpen }) => !isDropdownOpen && 'rotate(180deg)'};
+  transform: ${({ $isDropdownOpen }) => !$isDropdownOpen && 'rotate(180deg)'};
   transition: transform .25s ease-in;
 
     * { stroke: ${({ theme }) => theme.color}; }
@@ -72,6 +72,7 @@ const RegionOption = styled.div`
   user-select: none;
   font-size: 1.25rem;
   line-height: 2rem;
+  background: ${({ active, theme }) => active && theme.filterBackgroundHover};
 
   @media (min-width: 576px) {
     font-size: 1rem;
@@ -85,17 +86,27 @@ const RegionOption = styled.div`
 
 const Dropdown = ({ onChange, regions, regionFilter }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [optionIndex, setOptionIndex] = useState(null)
 
   // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => (
-    regions.map(region =>
-      <RegionOption key={region} onClick={() => onChange(region)} role='option'>{region}</RegionOption>
+    regions.map((region, index) =>
+      <RegionOption active={optionIndex === index} key={region} onClick={() => onChange(region)} role='option'>{region}</RegionOption>
     )
   )
 
-  // If user has tabbed to this element, hitting "enter" key opens/closes it
+  // Support keyboard navigation, handle side effects
   const handleKeyDown = (e) => {
-    e.key === 'Enter' && setIsOpen(prevState => !prevState)
+    e.preventDefault()
+    // "enter" key
+    if (e.key === 'Enter') return setIsOpen(prevState => !prevState)
+    // "down" arrow
+    if (e.keyCode === 38 && optionIndex > 0) {
+      setOptionIndex(optionIndex => optionIndex - 1)
+    // "up" arrow  
+    } else if (e.keyCode === 40 && optionIndex < regions.length - 1) {
+      setOptionIndex(optionIndex => optionIndex + 1)
+    }
   }
 
   return (
@@ -107,7 +118,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     >
       <DropdownHeader role='listbox'>
         <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
-        <StyledIcon isDropdownOpen={isOpen}/>
+        <StyledIcon $isDropdownOpen={isOpen} />
       </DropdownHeader>
       {isOpen && regions.length && <RegionOptions isOpen={isOpen}>{renderRegionOptions()}</RegionOptions>}
     </DropdownContainer>

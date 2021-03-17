@@ -2,7 +2,7 @@
   "light" : {
     "id": "T_001",
     "bodyBackground": "hsl(0, 0%, 98%)",
-    "boxShadow": "0px 10px 13px -7px #e8e8e8, 5px 5px 15px 5px rgba(0,0,0,0)",
+    "boxShadow": "0px 8px 20px rgb(0 0 0 / 6%);",
     "cursorColor": "#000",
     "color": "hsl(200, 15%, 8%)",
     "elementBackground": "hsl(0, 0%, 100%)",

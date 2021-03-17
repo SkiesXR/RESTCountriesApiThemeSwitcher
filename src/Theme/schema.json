@@ -10,6 +10,7 @@
     "filterBackgroundHover": "#80ceed",
     "iconColor": "#000",
     "placeholderTextColor": "#737373",
+    "spanColor": "#000000bd",
     "name": "Light"
   },
   "dark" : {
@@ -23,6 +24,7 @@
     "filterBackgroundHover": "#c4155b",
     "iconColor": "#fff",
     "placeholderTextColor": "hsl(0, 0%, 100%)",
+    "spanColor": "#dadada",
     "name": "Dark"
   }
 }

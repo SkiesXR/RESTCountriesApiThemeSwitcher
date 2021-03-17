@@ -60,11 +60,21 @@ const CountryStats = styled.div`
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
+  font-size: 1.25rem;
+  
+  @media (min-width: 576px) {
+    font-size: 1rem;
+  }
 `
 
 const CountryName = styled.h3`
   margin-bottom: 10px;
   margin-top: 0;
+  font-size: 1.75rem;
+
+  @media (min-width: 576px) {
+    font-size: 1.5rem;
+  }
 `
 /* Styles End */
 

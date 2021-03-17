@@ -57,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
 
   span {
     line-height: 1.75rem;
-    color: #dadada;
+    color: ${({ theme }) => theme.spanColor};
   }
 `
  

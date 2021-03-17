@@ -22,7 +22,7 @@ const DropdownContainer = styled.div`
 
   &:focus {
     outline: none;
-    border: 1px solid #ffffff30
+    border: 1px solid #ffffff30;
   }
 `
 

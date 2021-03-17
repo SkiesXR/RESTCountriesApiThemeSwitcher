@@ -89,7 +89,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
   // Render dropdown list of unique regions based on countries data
   const renderRegionOptions = () => (
     regions.map(region =>
-      <RegionOption key={region} onClick={() => onChange(region)}>{region}</RegionOption>
+      <RegionOption key={region} onClick={() => onChange(region)} role='option'>{region}</RegionOption>
     )
   )
 
@@ -105,7 +105,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
       onKeyDown={handleKeyDown}
       tabIndex={0}  // required for onBlur event to fire
     >
-      <DropdownHeader>
+      <DropdownHeader role='listbox'>
         <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
         <StyledIcon isDropdownOpen={isOpen}/>
       </DropdownHeader>

@@ -117,11 +117,12 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
         value={countryFilter}
       />
       <CancelSearchIcon
+        aria-label='Press enter to clear your search'
         inputValue={countryFilter}
         onClick={() => setCountryFilter('')}
         onKeyDown={handleKeyDown}
+        role='button'
         tabIndex='0'
-        aria-label='Clear icon. Press enter to clear your search'
       />
     </SearchContainer>
   );

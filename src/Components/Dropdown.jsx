@@ -107,17 +107,22 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
 
   // Support keyboard navigation, handle side effects
   const handleKeyDown = (e) => {
-    e.preventDefault()
+    // allow tab key default behavior for navigation
+    e.keyCode !== 9 && e.preventDefault()
+
     // "enter" key, activates a region filter
     if (e.keyCode === 13) {
       optionIndex && onChange(regions[optionIndex])
       setIsOpen(false)
+
     // "space key", opens/closes region filter dropdown
     } else if (e.keyCode === 32) {
       setIsOpen(prevState => !prevState)
+
       // "up arrow" key, select next region option
     } else if (e.keyCode === 38 && optionIndex > 0) {
       setOptionIndex(optionIndex => optionIndex - 1)
+
     // "down arrow" key, select previous region option
     } else if (e.keyCode === 40 && optionIndex < regions.length - 1) {
       setOptionIndex(optionIndex => optionIndex + 1)

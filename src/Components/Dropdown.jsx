@@ -20,7 +20,10 @@ const DropdownContainer = styled.div`
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
-  &:focus { outline: none; }
+  &:focus {
+    outline: none;
+    border: 1px solid #ffffff30
+  }
 `
 
 const DropdownHeader = styled.div`
@@ -105,17 +108,17 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
   // Support keyboard navigation, handle side effects
   const handleKeyDown = (e) => {
     e.preventDefault()
-    // "enter" key
+    // "enter" key, activates a region filter
     if (e.keyCode === 13) {
       onChange(regions[optionIndex])
       setIsOpen(false)
-    // "space key"
+    // "space key", opens/closes region filter dropdown
     } else if (e.keyCode === 32) {
       setIsOpen(prevState => !prevState)
-      // "up arrow" key
+      // "up arrow" key, select next region option
     } else if (e.keyCode === 38 && optionIndex > 0) {
       setOptionIndex(optionIndex => optionIndex - 1)
-    // "down arrow" key  
+    // "down arrow" key, select previous region option
     } else if (e.keyCode === 40 && optionIndex < regions.length - 1) {
       setOptionIndex(optionIndex => optionIndex + 1)
     }

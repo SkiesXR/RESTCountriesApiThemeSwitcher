@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 // icons
-import { ReactComponent as Icon } from '../Assets/Images/search.svg'
+import { ReactComponent as MagnifyingGlassIcon } from '../Assets/Images/search.svg'
+import { ReactComponent as XIcon } from '../Assets/Images/cancel.svg'
 
 /* Styles Begin */
 
@@ -17,6 +18,7 @@ const SearchContainer = styled.div`
   margin-bottom: 2.5rem;
   max-width: 375px;
   width: calc(100% - 40px);
+  position: relative;
 
   @media (min-width: 576px) {
     width: 375px;
@@ -37,9 +39,26 @@ const SearchContainer = styled.div`
   }
 `
 
-const SearchIcon = styled(Icon)`
+const SearchIcon = styled(MagnifyingGlassIcon)`
   width: 25px;
   margin-right: 15px;
+
+  * {
+    stroke: #dfdfdf;
+  }
+`
+
+const CancelSearchIcon = styled(XIcon)`
+  width: 15px;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translate(-50%, -50%);
+  display: ${({ inputValue }) => !inputValue && 'none'};
+
+  &:hover {
+    cursor: pointer;
+  }
 
   * {
     stroke: #dfdfdf;
@@ -92,6 +111,7 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
         type='text'
         value={countryFilter}
       />
+      <CancelSearchIcon inputValue={countryFilter}/>
     </SearchContainer>
   );
 }

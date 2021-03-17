@@ -110,7 +110,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     e.preventDefault()
     // "enter" key, activates a region filter
     if (e.keyCode === 13) {
-      onChange(regions[optionIndex])
+      optionIndex && onChange(regions[optionIndex])
       setIsOpen(false)
     // "space key", opens/closes region filter dropdown
     } else if (e.keyCode === 32) {

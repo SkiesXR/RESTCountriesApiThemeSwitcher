@@ -36,18 +36,18 @@ export default App;
 
 /* TODO:
 WRAPPING UP THE BASICS
+- 'x' icon to clear out Search input
 - Finalize icons
 - Fix theme-switching for icons & theme text
-- Finalize box-shadow(s) for light theme
-- Null State (search) component
 - Error message for API error
 - Loader component / design
-- 'x' icon to clear out Search input
 
 OPTIONAL ADD-ONS
+- Accessibility improvements 
 - Speech Recognition
 - Create mixins to reduce code
 - Create CSS constants
+- Use arrow keys to navigate elements
 
 CLEANUP
 - Organize CSS

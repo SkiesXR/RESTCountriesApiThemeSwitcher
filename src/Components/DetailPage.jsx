@@ -91,7 +91,8 @@ const DetailsContainer = styled.div`
   width: 100%;
 
   span {
-    line-height: 2rem;
+    line-height: 2.25rem;
+    font-size: 1.25rem;
   }
 
   @media (min-width: 576px) {
@@ -133,7 +134,7 @@ const BorderCountriesSection = styled.div`
 
   div {
     margin-top: 10px;
-    font-size: .8rem;
+    font-size: 1.25rem;
 
     &:not(:last-child) {
       margin-right: 10px;

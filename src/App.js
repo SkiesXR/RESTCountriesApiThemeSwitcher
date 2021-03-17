@@ -42,6 +42,7 @@ WRAPPING UP THE BASICS
 - Null State (search) component
 - Error message for API error
 - Loader component / design
+- 'x' icon to clear out Search input
 
 OPTIONAL ADD-ONS
 - Speech Recognition

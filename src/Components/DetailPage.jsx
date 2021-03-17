@@ -146,8 +146,13 @@ const BorderCountriesSection = styled.div`
 `
 
 const BorderText = styled.span`
+  margin-top: 10px;
   margin-right: 20px;
   font-weight: bold;
+
+  @media (min-width: 576px) {
+    margin-top: 10px;
+  }  
 `
 
 const DetailPage = ({ data }) => {

@@ -108,13 +108,14 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     // "enter" key
     if (e.keyCode === 13) {
       onChange(regions[optionIndex])
+      setIsOpen(false)
     // "space key"
     } else if (e.keyCode === 32) {
       setIsOpen(prevState => !prevState)
-      // "up" arrow
+      // "up arrow" key
     } else if (e.keyCode === 38 && optionIndex > 0) {
       setOptionIndex(optionIndex => optionIndex - 1)
-    // "down" arrow  
+    // "down arrow" key  
     } else if (e.keyCode === 40 && optionIndex < regions.length - 1) {
       setOptionIndex(optionIndex => optionIndex + 1)
     }

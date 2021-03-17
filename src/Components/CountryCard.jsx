@@ -21,8 +21,11 @@ const CardContainer = styled.div`
   }
 
   @media (min-width: 576px) {
-    margin-bottom: 0;
     transition: transform .15s ease-in;
+
+    &:not(:last-child) {
+      margin-bottom: 0rem;
+    }
 
     &:hover {
       cursor: pointer;

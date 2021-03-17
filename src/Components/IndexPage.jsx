@@ -93,18 +93,18 @@ const IndexPage = ({ data }) => {
           regions={getRegionOptions()}
         />
       </InputAndFilterSection>
-      <CountriesGrid>
-        {filteredData.length
-          ? (
-            filteredData.map(country =>
+      {filteredData.length
+        ? (
+          <CountriesGrid>
+            {filteredData.map(country =>
               <CountryCard
                 data={country}
                 key={country.alpha3Code}
               />
-            )
-          ) : <SearchNullState />
+            )}
+          </CountriesGrid>
+        ) : <SearchNullState query={countryFilter}/>
       }
-      </CountriesGrid>
     </>
   )
 }

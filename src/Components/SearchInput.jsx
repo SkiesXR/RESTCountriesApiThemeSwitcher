@@ -61,6 +61,13 @@ const TextInput = styled.input`
   }
 `
 
+const AccessibilityLabel = styled.label`
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+`
+
 /* Styles End */
 
 const SearchInput = ({ countryFilter, setCountryFilter }) => {
@@ -75,13 +82,15 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
   return (
     <SearchContainer onClick={() => textInputRef.current.focus()}>
       <SearchIcon />
+      <AccessibilityLabel htmlFor='search'/>
       <TextInput
+        autoFocus={true}
+        id='search'
         onChange={handleChange}
         placeholder='Search for a country...'
         ref={textInputRef}
         type='text'
         value={countryFilter}
-        autoFocus={true}
       />
     </SearchContainer>
   );

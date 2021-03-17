@@ -37,12 +37,17 @@ const Button = styled.div`
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: .8rem;
-  transition: all .15s ease-in;
+  transition: background .15s ease-in;
 
   @media (min-width: 576px) {
     &:hover {
       cursor: pointer;
       background: ${({ theme }) => theme.filterBackgroundHover};
+
+      svg {
+        transition: transform .5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        transform: translateX(-10%);
+      }
     }
   } 
 `

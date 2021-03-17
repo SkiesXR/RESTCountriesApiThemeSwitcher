@@ -72,7 +72,8 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
   const history = useHistory()
 
   const handleOnKeyDown = (e) => {
-    e.preventDefault()
+    // allow tab key default behavior for navigation
+    e.keyCode !== 9 && e.preventDefault()
 
     // "enter" key, open detail page
     if (e.keyCode === 13) {

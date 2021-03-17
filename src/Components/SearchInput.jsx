@@ -54,7 +54,7 @@ const CancelSearchIcon = styled(XIcon)`
   top: 50%;
   right: 25px;
   transform: translate(-50%, -50%);
-  display: ${({ inputValue }) => !inputValue && 'none'};
+  display: ${({ $inputValue }) => !$inputValue && 'none'};
 
   &:hover {
     cursor: pointer;
@@ -118,7 +118,7 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
       />
       <CancelSearchIcon
         aria-label='Press enter to clear your search'
-        inputValue={countryFilter}
+        $inputValue={countryFilter}
         onClick={() => setCountryFilter('')}
         onKeyDown={handleKeyDown}
         role='button'

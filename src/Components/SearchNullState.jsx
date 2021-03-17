@@ -22,7 +22,7 @@ const Header = styled.h1`
 `
 
 const Message = styled.span`
-  color: ${({ theme }) => theme.color};
+  color: ${({ theme }) => theme.errorSubheaderColor};
   font-weight: 400;
 `
 
@@ -32,7 +32,7 @@ const SearchNullState = ({ query }) => {
   return (
     <Container>
       <Header>{`No results found for "${query}"`}</Header>
-      <Message>Placeholder text that's SUPER helpful</Message>
+      <Message>Please check your spelling and try again</Message>
     </Container>
   )
 }

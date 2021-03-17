@@ -47,7 +47,6 @@ OPTIONAL ADD-ONS
 - Speech Recognition
 - Create mixins to reduce code
 - Create CSS constants
-- Use arrow keys to navigate elements
 - Improve border country section responsiveness
 
 CLEANUP

@@ -81,7 +81,7 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
         ref={textInputRef}
         type='text'
         value={countryFilter}
-        autofocus='true'
+        autoFocus={true}
       />
     </SearchContainer>
   );

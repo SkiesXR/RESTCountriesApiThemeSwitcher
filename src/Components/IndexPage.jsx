@@ -87,11 +87,11 @@ const IndexPage = ({ data }) => {
           countryFilter={countryFilter}
           setCountryFilter={setCountryFilter}
         />
-        <Dropdown
+        {filteredData.length ? <Dropdown
           onChange={setRegionFilter}
           regionFilter={regionFilter}
           regions={getRegionOptions()}
-        />
+        /> : null}
       </InputAndFilterSection>
       {filteredData.length
         ? (

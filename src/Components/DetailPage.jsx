@@ -78,9 +78,12 @@ const FlagImageContainer = styled.div`
 `
 
 const FlagImage = styled.img`
-  margin-right: 75px;
   object-fit: cover;
   width: 100%;
+
+  @media (min-width: 576px) {
+    margin-right: 75px;
+  } 
 ` 
 
 const DetailsContainer = styled.div`

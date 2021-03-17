@@ -93,10 +93,16 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     )
   )
 
+  // If user has tabbed to this element, hitting "enter" key opens/closes it
+  const handleKeyDown = (e) => {
+    e.key === 'Enter' && setIsOpen(prevState => !prevState)
+  }
+
   return (
     <DropdownContainer
       onBlur={() => setIsOpen(false)}
       onClick={() => setIsOpen(prevState => !prevState)}
+      onKeyDown={handleKeyDown}
       tabIndex={0}  // required for onBlur event to fire
     >
       <DropdownHeader>

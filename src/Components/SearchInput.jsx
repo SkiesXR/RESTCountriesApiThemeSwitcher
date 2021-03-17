@@ -55,6 +55,7 @@ const CancelSearchIcon = styled(XIcon)`
   right: 25px;
   transform: translate(-50%, -50%);
   display: ${({ $inputValue }) => !$inputValue && 'none'};
+  outline: none;
 
   &:hover {
     cursor: pointer;
@@ -70,6 +71,7 @@ const TextInput = styled.input`
   background: none;
   caret-color: ${({ theme }) => theme.cursorColor};
   color: ${({ theme }) => theme.color};
+  font-size: 1rem;
   
   ::placeholder { opacity: .8; }
 

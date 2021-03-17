@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-family: Nunito Sans Light, Sans-Serif;
   }
 
@@ -52,10 +52,12 @@ const GlobalStyles = createGlobalStyle`
 
   input::placeholder {
     color: ${({ theme }) => theme.placeholderTextColor};
+    font-size: 1rem;
   }
 
   span {
     line-height: 1.75rem;
+    color: #dadada;
   }
 `
  

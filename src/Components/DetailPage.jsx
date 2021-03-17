@@ -36,7 +36,6 @@ const Button = styled.div`
   border-radius: 5px;
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
-  font-size: .8rem;
   transition: background .15s ease-in;
 
   @media (min-width: 576px) {

@@ -105,17 +105,20 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
   // Support keyboard navigation, handle side effects
   const handleKeyDown = (e) => {
     e.stopPropagation()
+    e.preventDefault()
     // "enter" key
     if (e.keyCode === 13) {
+      // call onChange passing 'region' as parameter
+    }
+    // "space" key
+    if (e.keyCode === 32) {
       setIsOpen(prevState => !prevState)
     }
-    // "down" arrow
+    // "up" arrow
     if (e.keyCode === 38 && optionIndex > 0) {
-      e.preventDefault()
       setOptionIndex(optionIndex => optionIndex - 1)
-    // "up" arrow  
+    // "down" arrow  
     } else if (e.keyCode === 40 && optionIndex < regions.length - 1) {
-      e.preventDefault()
       setOptionIndex(optionIndex => optionIndex + 1)
     }
   }

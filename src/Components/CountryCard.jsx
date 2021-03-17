@@ -27,6 +27,11 @@ const CardContainer = styled.div`
       margin-bottom: 0rem;
     }
 
+    &:focus {
+      border: 1px solid #ffffff8c;
+      outline: none;
+    }
+
     &:hover {
       cursor: pointer;
       transform: translateY(-5%);
@@ -66,8 +71,17 @@ const CountryName = styled.h3`
 const CountryCard = ({ data: { capital, flag, name, numericCode, population, region  } }) => {
   const history = useHistory()
 
+  const handleOnKeyDown = (e) => {
+    e.preventDefault()
+
+    // "enter" key, open detail page
+    if (e.keyCode === 13) {
+      history.push(`/detail/${numericCode}`)
+    }
+  }
+
   return (
-    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)} tabIndex='0' >
+    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)} onKeyDown={handleOnKeyDown} tabIndex='0' >
       <FlagImageContainer>
         <FlagImage src={flag} alt={`${name} flag`} />
       </FlagImageContainer>

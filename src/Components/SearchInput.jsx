@@ -98,6 +98,11 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
     if (value === '' || value.match(/[A-Za-z]/g)) setCountryFilter(value)
   }
 
+  // If user has tabbed to this element, hitting "enter" key clears the search
+  const handleKeyDown = (e) => {
+    e.key === 'Enter' && setCountryFilter('')
+  }
+
   return (
     <SearchContainer onClick={() => textInputRef.current.focus()}>
       <SearchIcon />
@@ -111,7 +116,13 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
         type='text'
         value={countryFilter}
       />
-      <CancelSearchIcon inputValue={countryFilter}/>
+      <CancelSearchIcon
+        inputValue={countryFilter}
+        onClick={() => setCountryFilter('')}
+        onKeyDown={handleKeyDown}
+        tabIndex='0'
+        aria-label='Clear icon. Press enter to clear your search'
+      />
     </SearchContainer>
   );
 }

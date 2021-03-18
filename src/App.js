@@ -36,7 +36,6 @@ export default App;
 
 /* TODO:
 WRAPPING UP THE BASICS
-- Fix "filter by region" label issue
 - Finalize icons
 - Fix theme-switching for icons & theme text
 - Error message for API error

@@ -49,6 +49,7 @@ OPTIONAL ADD-ONS
 - Create mixins to reduce code
 - Create CSS constants
 - Add proptypes
+- Navigate country card grid using arrow keys
 
 CLEANUP
 - Organize CSS

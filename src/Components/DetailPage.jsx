@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
+import { FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter } from './Mixins'
 // utils
 import { numberWithCommas } from '../Utils/format'
 // icons
@@ -28,12 +29,10 @@ const Icon = styled(BackArrow)`
 `
 
 const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${FlexRowCenter};
   width: fit-content;
   padding: 7px 15px;
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
   transition: background .15s ease-in;
@@ -57,15 +56,13 @@ const Button = styled.div`
 /* Styles End */
 
 const CountryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${FlexColCenter};
   margin-top: 50px;
 
   @media (min-width: 576px) {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
   }  
 `
@@ -76,7 +73,7 @@ const FlagImageContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (min-width: 576px) {
-    max-width: 600px;
+    max-width: 700px;
     width: 50%;
 
     &:focus { outline: ${({ theme }) => theme.focusColor}; }
@@ -93,9 +90,7 @@ const FlagImage = styled.img`
 ` 
 
 const DetailsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  ${FlexColStart};
   align-items: center;
   width: 100%;
 
@@ -120,9 +115,7 @@ const Name = styled.h2`
 `
 
 const Grid = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  ${FlexColStart};
   width: 100%;
 
   @media (min-width: 576px) {
@@ -135,9 +128,7 @@ const Grid = styled.div`
 
 const BorderCountriesSection = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  ${FlexStartCenter};
   flex-wrap: wrap;
 `
 
@@ -158,9 +149,7 @@ const BorderCountries = styled.div`
   }
 
   @media (min-width: 576px) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    ${FlexStartCenter};
     flex-wrap: wrap;
   }  
 `

@@ -3,16 +3,15 @@ import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
+import { FlexColCenter } from './Mixins.js'
 // utils
 import { numberWithCommas } from '../Utils/format'
 
 /* Styles Begin */
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
+  ${FlexColCenter};
+  border-radius: var(--borderRadius);
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
@@ -47,7 +46,7 @@ const FlagImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 5px 5px 0 0;
+  border-radius: var(--borderRadius) var(--borderRadius) 0 0;
 `
 
 const CountryStats = styled.div`

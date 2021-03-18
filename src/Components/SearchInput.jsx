@@ -11,7 +11,7 @@ const SearchContainer = styled.div`
   align-items: center;
   box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 1rem 20px;
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   height: 1.5rem;
   background: ${({ theme }) => theme.elementBackground};
   margin-right: 0;

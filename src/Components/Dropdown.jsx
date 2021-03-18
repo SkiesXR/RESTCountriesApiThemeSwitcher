@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+// components
+import { FlexColStart } from './Mixins'
 // icons
 import { ReactComponent as DropdownIcon } from '../Assets/Images/arrow.svg'
 
@@ -16,7 +18,7 @@ const DropdownContainer = styled.div`
   background: ${({ theme }) => theme.elementBackground};
   cursor: pointer;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   position: relative;
   -webkit-tap-highlight-color: transparent;
 
@@ -50,12 +52,10 @@ const StyledIcon = styled(DropdownIcon)`
 `
 
 const RegionOptions = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  ${FlexColStart};
   line-height: 1.75rem;
   width: 100%;
-  border-radius: 5px;
+  border-radius: var(--borderRadius);
   position: absolute;
   top: 60px;
   left: 0;

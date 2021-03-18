@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
-import { FlexColCenter } from './Mixins.js'
+import { breakpoints, FlexColCenter } from './Mixins.js'
 // utils
 import { numberWithCommas } from '../Utils/format'
 
@@ -19,7 +19,7 @@ const CardContainer = styled.div`
     margin-bottom: 2rem;
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     transition: transform .15s ease-in;
 
     &:not(:last-child) {
@@ -60,7 +60,7 @@ const CountryStats = styled.div`
   margin-bottom: 50px;
   font-size: 1.25rem;
   
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     font-size: 1rem;
   }
 `
@@ -70,7 +70,7 @@ const CountryName = styled.h3`
   margin-top: 0;
   font-size: 1.75rem;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     font-size: 1.5rem;
   }
 `

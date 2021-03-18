@@ -5,6 +5,7 @@ import CountryCard from './CountryCard'
 import Dropdown from './Dropdown'
 import SearchInput from './SearchInput'
 import SearchNullState from './SearchNullState'
+import { breakpoints } from './Mixins'
 
 /* Styles Begin */
 
@@ -14,7 +15,7 @@ const InputAndFilterSection = styled.div`
   align-items: center;
   padding: 2.5rem 25px 0;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,7 +31,7 @@ const CountriesGrid = styled.div`
   margin-top: 3rem;
   padding: 0 3rem;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 55px 55px;

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 // components
 import ThemeSwitcher from './ThemeSwitcher'
+import { breakpoints } from './Mixins'
 
 /* Styles Begin */
 
@@ -15,7 +16,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     padding: 0 75px;
   }
 `

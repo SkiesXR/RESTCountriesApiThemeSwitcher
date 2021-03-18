@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+// utils
+import { breakpoints } from './Mixins'
 // icons
 import { ReactComponent as MagnifyingGlassIcon } from '../Assets/Images/search.svg'
 import { ReactComponent as XIcon } from '../Assets/Images/cancel.svg'
@@ -20,7 +22,7 @@ const SearchContainer = styled.div`
   width: calc(100% - 40px);
   position: relative;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     width: 375px;
     min-width: 200px;
     margin-right: 2rem;

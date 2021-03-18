@@ -1,4 +1,8 @@
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
+
+export const breakpoints = {
+  sm: '576px'
+}
 
 export const FlexRowCenter = css`
   display: flex;

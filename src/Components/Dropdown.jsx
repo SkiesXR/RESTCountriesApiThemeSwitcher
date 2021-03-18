@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 // components
-import { FlexColStart } from './Mixins'
+import { breakpoints, FlexColStart } from './Mixins'
 // icons
 import { ReactComponent as DropdownIcon } from '../Assets/Images/arrow.svg'
 
@@ -38,7 +38,7 @@ const RegionFilterLabel = styled.div`
   background: ${({ theme }) => theme.elementBackground};
   user-select: none;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     font-size: 1rem;
   }
 `
@@ -76,7 +76,7 @@ const RegionOption = styled.div`
   line-height: 2rem;
   background: ${({ active, theme }) => active && theme.filterBackgroundHover};
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     font-size: 1rem;
     line-height: 1.75rem;
 

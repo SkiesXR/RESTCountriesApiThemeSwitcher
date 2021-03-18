@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
-import { FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter } from './Mixins'
+import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter } from './Mixins'
 // utils
 import { numberWithCommas } from '../Utils/format'
 // icons
@@ -16,7 +16,7 @@ const Container = styled.div`
   padding: 0 25px;
   margin: 2rem 0;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     padding: 0 75px;
     margin: 50px 0;
   }  
@@ -37,7 +37,7 @@ const Button = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   transition: background .15s ease-in;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     &:focus {
       outline: ${({ theme }) => theme.focusColor};
     }
@@ -59,7 +59,7 @@ const CountryContainer = styled.div`
   ${FlexColCenter};
   margin-top: 50px;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -72,7 +72,7 @@ const FlagImageContainer = styled.div`
   margin-bottom: 2rem;
   box-shadow: ${({ theme }) => theme.boxShadow};
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     max-width: 700px;
     width: 50%;
 
@@ -84,7 +84,7 @@ const FlagImage = styled.img`
   object-fit: cover;
   width: 100%;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     margin-right: 75px;
   } 
 ` 
@@ -99,7 +99,7 @@ const DetailsContainer = styled.div`
     font-size: 1.25rem;
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     padding-top: 25px;
     padding-left: 50px;
     flex-wrap: wrap;
@@ -118,7 +118,7 @@ const Grid = styled.div`
   ${FlexColStart};
   width: 100%;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2rem;
@@ -148,7 +148,7 @@ const BorderCountries = styled.div`
     }
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     ${FlexStartCenter};
     flex-wrap: wrap;
   }  
@@ -159,7 +159,7 @@ const BorderCountriesHeader = styled.span`
   user-select: none;
   width: 100%;
 
-  @media (min-width: 576px) {
+  @media (min-width: ${breakpoints.sm}) {
     width: initial;
     margin-top: 10px;
     margin-right: 20px;

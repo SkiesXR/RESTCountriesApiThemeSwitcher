@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
   :root {
     --borderRadius: 5px;
-    --mqSmall: 576px; 
   }
   
   html {

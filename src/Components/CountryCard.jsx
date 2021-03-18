@@ -90,7 +90,12 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
   }
 
   return (
-    <CardContainer onClick={() => history.push(`/detail/${numericCode}`)} onKeyDown={handleOnKeyDown} tabIndex='0' >
+    <CardContainer
+      onClick={() => history.push(`/detail/${numericCode}`)}
+      onKeyDown={handleOnKeyDown}
+      onMouseDown={(e) => e.preventDefault()}
+      tabIndex='0'
+    >
       <FlagImageContainer>
         <FlagImage src={flag} alt={`${name} flag`} />
       </FlagImageContainer>

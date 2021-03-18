@@ -5,8 +5,8 @@ const StyledDataPair = styled.span`
   &:focus { outline: ${({ theme }) => theme.focusColor} }
 `
 
-const DataPair = ({ label, children }) => (
-    <StyledDataPair tabIndex='0'>
+const DataPair = ({ children, label, tab }) => (
+    <StyledDataPair tabIndex={tab ? 0 : -1}>
       <b>{label}:&nbsp;</b>
       {children}
     </StyledDataPair>

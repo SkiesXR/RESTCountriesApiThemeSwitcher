@@ -202,7 +202,7 @@ const DetailPage = ({ data }) => {
   // Render a list of buttons linking to border countries
   const renderBorderCountries = () => {
     return Object.values(borderCountries).map(country => (
-      <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)}>
+      <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)} onMouseDown={(e) => e.preventDefault()}>
         {country.name}
       </Button>
     ))
@@ -213,6 +213,7 @@ const DetailPage = ({ data }) => {
       <Button
         onClick={() => history.push('/')}
         onKeyDown={(e) => e.key === 'Enter' && history.push('/')}
+        onMouseDown={(e) => e.preventDefault()}
         tabIndex='0'
       >
         <Icon />
@@ -225,14 +226,14 @@ const DetailPage = ({ data }) => {
         <DetailsContainer>
           <Name>{name}</Name>
           <Grid>
-            <DataPair label='Native Name'>{nativeName}</DataPair>
-            <DataPair label='Top Level Domain'>{topLevelDomain}</DataPair>
-            <DataPair label='Population'>{numberWithCommas(population)}</DataPair>
-            <DataPair label='Currencies'>{renderCurrencies()}</DataPair>
-            <DataPair label='Region'>{region}</DataPair>
-            <DataPair label='Languages'>{renderLanguages()}</DataPair>
-            <DataPair label='Sub Region'>{subregion}</DataPair>
-            <DataPair label='Capital'>{capital}</DataPair>
+            <DataPair label='Native Name' tab>{nativeName}</DataPair>
+            <DataPair label='Top Level Domain' tab>{topLevelDomain}</DataPair>
+            <DataPair label='Population' tab>{numberWithCommas(population)}</DataPair>
+            <DataPair label='Currencies' tab>{renderCurrencies()}</DataPair>
+            <DataPair label='Region' tab>{region}</DataPair>
+            <DataPair label='Languages' tab>{renderLanguages()}</DataPair>
+            <DataPair label='Sub Region' tab>{subregion}</DataPair>
+            <DataPair label='Capital' tab>{capital}</DataPair>
           </Grid>
           <BorderCountriesSection>
             <BorderCountriesHeader>Border Countries: </BorderCountriesHeader>

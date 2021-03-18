@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useHistory } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
@@ -9,11 +9,17 @@ import { numberWithCommas } from '../Utils/format'
 
 /* Styles Begin */
 
+const FadeUp = keyframes`
+  from { opacity: 0; transform: translateY(10%); };
+  to { opacity: 1; transform: translateY(0%); };
+`
+
 const CardContainer = styled.div`
   ${FlexColCenter};
   border-radius: var(--borderRadius);
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
+  animation: ${FadeUp} .25s ease-in;
 
   &:not(:last-child) {
     margin-bottom: 2rem;

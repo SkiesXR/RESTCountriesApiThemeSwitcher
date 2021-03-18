@@ -16,17 +16,18 @@ function App() {
   const { error, isLoading, response: data } = useFetch('https://restcountries.eu/rest/v2/all', {})
 
   if (error) return <div>Sorry! Please try again later</div>
-  if (isLoading) return <div>Loading...</div>
 
   return (
     <>
     {themeLoaded && <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
-        <Switch>
-          <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
-        <Route path='/'><IndexPage data={data} /></Route>
-        </Switch>
+        {!isLoading ? (
+          <Switch>
+            <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
+            <Route path='/'><IndexPage data={data} /></Route>
+          </Switch>
+        ) : <div>Loading...</div>}
       </ThemeProvider>}
     </>
   )

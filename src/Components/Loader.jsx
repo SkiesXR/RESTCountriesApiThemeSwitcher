@@ -7,10 +7,12 @@ const LoaderMessage = styled.h1`
   color: ${({ theme }) => theme.color}
 `
 
-function Loader(props) {
+const Loader = () => {
   return (
     <LoaderMessage>Loading...</LoaderMessage>
   )
 }
 
 export default Loader
+
+// TODO: Add spinner

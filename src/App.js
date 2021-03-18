@@ -6,6 +6,7 @@ import HeaderSection from './Components/HeaderSection'
 import DetailPage from './Components/DetailPage'
 import IndexPage from './Components/IndexPage'
 import GlobalStyles from './globalStyles'
+import Loader from './Components/Loader'
 // hooks
 import { useFetch } from './Hooks/useFetch'
 import { useTheme } from './Theme/useTheme';
@@ -22,12 +23,12 @@ function App() {
     {themeLoaded && <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
-        {!isLoading ? (
+        {isLoading ? (
           <Switch>
             <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
             <Route path='/'><IndexPage data={data} /></Route>
           </Switch>
-        ) : <div>Loading...</div>}
+        ) : <Loader />}
       </ThemeProvider>}
     </>
   )
@@ -48,6 +49,7 @@ OPTIONAL ADD-ONS
 - Create mixins to reduce code
 - Create CSS constants
 - Improve border country section responsiveness
+- Add proptypes
 
 CLEANUP
 - Organize CSS

@@ -41,6 +41,7 @@ WRAPPING UP THE BASICS
 - Finalize icons
 - Fix theme-switching for icons & theme text
 - Error message for API error
+- Tablet responsivenes (breakpoint)
 
 OPTIONAL ADD-ONS
 - Accessibility improvements 

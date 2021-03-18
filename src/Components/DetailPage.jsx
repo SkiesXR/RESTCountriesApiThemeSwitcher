@@ -78,6 +78,8 @@ const FlagImageContainer = styled.div`
   @media (min-width: 576px) {
     max-width: 600px;
     width: 50%;
+
+    &:focus { outline: ${({ theme }) => theme.focusColor}; }
   }  
 `
 
@@ -228,7 +230,7 @@ const DetailPage = ({ data }) => {
         <span>Back</span>
       </Button>
       <CountryContainer>
-        <FlagImageContainer>
+        <FlagImageContainer tabIndex='0'>
           <FlagImage src={flag} alt={`${name} flag`} />
         </FlagImageContainer>
         <DetailsContainer>

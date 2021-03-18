@@ -41,14 +41,12 @@ WRAPPING UP THE BASICS
 - Finalize icons
 - Fix theme-switching for icons & theme text
 - Error message for API error
-- Loader component / design
 
 OPTIONAL ADD-ONS
 - Accessibility improvements 
 - Speech Recognition
 - Create mixins to reduce code
 - Create CSS constants
-- Improve border country section responsiveness
 - Add proptypes
 
 CLEANUP

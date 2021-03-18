@@ -132,10 +132,17 @@ const Grid = styled.div`
 `
 
 const BorderCountriesSection = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+`
+
+const BorderCountries = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
 
@@ -150,21 +157,21 @@ const BorderCountriesSection = styled.div`
 
   @media (min-width: 576px) {
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
   }  
 `
 
-const BorderText = styled.span`
-  margin-top: 10px;
-  margin-right: 20px;
+const BorderCountriesHeader = styled.span`
   font-weight: bold;
   user-select: none;
+  width: 100%;
 
   @media (min-width: 576px) {
+    width: initial;
     margin-top: 10px;
+    margin-right: 20px;
   }  
 `
 
@@ -203,18 +210,11 @@ const DetailPage = ({ data }) => {
 
   // Render a list of buttons linking to border countries
   const renderBorderCountries = () => {
-    const borders = Object.values(borderCountries).map(country => (
+    return Object.values(borderCountries).map(country => (
       <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)}>
         {country.name}
       </Button>
     ))
-
-    return (
-      <>
-        <BorderText>Border Countries: </BorderText>
-        {borders}
-      </>
-    )
   }
 
   return (
@@ -244,7 +244,10 @@ const DetailPage = ({ data }) => {
             <DataPair label='Capital'>{capital}</DataPair>
           </Grid>
           <BorderCountriesSection>
-          {Object.keys(borderCountries).length ? renderBorderCountries() : null}
+            <BorderCountriesHeader>Border Countries: </BorderCountriesHeader>
+            <BorderCountries>
+              {Object.keys(borderCountries).length ? renderBorderCountries() : null}
+            </BorderCountries>
           </BorderCountriesSection>
         </DetailsContainer>
       </CountryContainer>

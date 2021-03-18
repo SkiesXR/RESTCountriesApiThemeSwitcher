@@ -226,7 +226,7 @@ const DetailPage = ({ data }) => {
         <span>Back</span>
       </Button>
       <CountryContainer>
-        <FlagImageContainer tabIndex='0'>
+        <FlagImageContainer tabIndex='0' aria-label={`${name} flag`}>
           <FlagImage src={flag} alt={`${name} flag`} />
         </FlagImageContainer>
         <DetailsContainer>
@@ -242,10 +242,14 @@ const DetailPage = ({ data }) => {
             <DataPair label='Capital' tab>{capital}</DataPair>
           </Grid>
           <BorderCountriesSection>
-            <BorderCountriesHeader>Border Countries: </BorderCountriesHeader>
-            <BorderCountries>
-              {Object.keys(borderCountries).length ? renderBorderCountries() : null}
-            </BorderCountries>
+            {Object.values(borderCountries).length
+              ? (<>
+                  <BorderCountriesHeader>Border Countries: </BorderCountriesHeader>
+                  <BorderCountries>
+                    {renderBorderCountries()}
+                  </BorderCountries>
+                </>
+              ) : null}
           </BorderCountriesSection>
         </DetailsContainer>
       </CountryContainer>

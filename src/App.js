@@ -23,7 +23,7 @@ function App() {
     {themeLoaded && <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
-        {isLoading ? (
+        {!isLoading ? (
           <Switch>
             <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
             <Route path='/'><IndexPage data={data} /></Route>

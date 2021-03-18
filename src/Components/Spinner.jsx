@@ -11,12 +11,13 @@ const StyledSpinner = styled.div`
     position: relative;
     width: 80px;
     height: 80px;
+    margin: 0 auto;
   
     & div {
       position: absolute;
       width: 6px;
       height: 6px;
-      background: #fff;
+      background: ${({ theme }) => theme.filterBackgroundHover};
       border-radius: 50%;
       animation: ${Spin} 1.2s linear infinite;
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Spinner from './Spinner'
 
 const LoaderMessage = styled.h1`
   margin: 100px auto;
@@ -9,7 +10,10 @@ const LoaderMessage = styled.h1`
 
 const Loader = () => {
   return (
-    <LoaderMessage>Loading...</LoaderMessage>
+    <>
+      <Spinner />
+      <LoaderMessage>Loading...</LoaderMessage>
+    </>
   )
 }
 

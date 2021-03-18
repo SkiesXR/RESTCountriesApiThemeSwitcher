@@ -39,6 +39,10 @@ const Button = styled.div`
   transition: background .15s ease-in;
 
   @media (min-width: 576px) {
+    &:focus {
+      outline: ${({ theme }) => theme.focusColor};
+    }
+
     &:hover {
       cursor: pointer;
       background: ${({ theme }) => theme.filterBackgroundHover};
@@ -157,6 +161,7 @@ const BorderText = styled.span`
   margin-top: 10px;
   margin-right: 20px;
   font-weight: bold;
+  user-select: none;
 
   @media (min-width: 576px) {
     margin-top: 10px;
@@ -214,7 +219,11 @@ const DetailPage = ({ data }) => {
 
   return (
     <Container>
-      <Button onClick={() => history.push('/')}>
+      <Button
+        onClick={() => history.push('/')}
+        onKeyDown={(e) => e.key === 'Enter' && history.push('/')}
+        tabIndex='0'
+      >
         <Icon />
         <span>Back</span>
       </Button>

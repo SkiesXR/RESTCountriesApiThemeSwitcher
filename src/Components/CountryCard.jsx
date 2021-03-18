@@ -28,8 +28,7 @@ const CardContainer = styled.div`
     }
 
     &:focus {
-      border: ${({ theme }) => theme.cardFocusBorder};
-      outline: none;
+      outline: ${({ theme }) => theme.focusColor};
     }
 
     &:hover {

@@ -21,8 +21,7 @@ const DropdownContainer = styled.div`
   -webkit-tap-highlight-color: transparent;
 
   &:focus {
-    outline: none;
-    border: 1px solid #ffffff30;
+    outline: ${({ theme }) => theme.focusColor};
   }
 `
 

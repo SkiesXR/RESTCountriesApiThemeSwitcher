@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const LoaderMessage = styled.h1`
   margin: 100px auto;
   width: fit-content;
+  color: ${({ theme }) => theme.color}
 `
 
 function Loader(props) {

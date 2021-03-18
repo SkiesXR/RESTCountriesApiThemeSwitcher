@@ -202,7 +202,13 @@ const DetailPage = ({ data }) => {
   // Render a list of buttons linking to border countries
   const renderBorderCountries = () => {
     return Object.values(borderCountries).map(country => (
-      <Button key={country.code} onClick={() => history.push(`/detail/${country.code}`)} onMouseDown={(e) => e.preventDefault()}>
+      <Button
+        key={country.code}
+        onClick={() => history.push(`/detail/${country.code}`)}
+        onKeyDown={(e) => e.key === 'Enter' && history.push(`/detail/${country.code}`)}
+        onMouseDown={(e) => e.preventDefault()}
+        tabIndex='0'
+      >
         {country.name}
       </Button>
     ))

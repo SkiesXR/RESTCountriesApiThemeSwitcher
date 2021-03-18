@@ -110,7 +110,6 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
       <SearchIcon />
       <AccessibilityLabel htmlFor='search'/>
       <TextInput
-        autoFocus={true}
         id='search'
         onChange={handleChange}
         placeholder='Search for a country...'

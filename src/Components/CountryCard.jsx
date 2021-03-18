@@ -28,7 +28,7 @@ const CardContainer = styled.div`
     }
 
     &:focus {
-      border: 1px solid #ffffff8c;
+      border: ${({ theme }) => theme.cardFocusBorder};
       outline: none;
     }
 

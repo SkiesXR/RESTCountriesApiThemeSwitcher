@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
-import * as themes from './Theme/schema.json'
+import * as themes from './Themes/themesSchema.json'
 import { setToLS } from './Utils/storage'
 import './index.css'
 

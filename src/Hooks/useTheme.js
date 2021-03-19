@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { setToLS, getFromLS } from '../Utils/storage'
 
-export const useTheme = () => {
+const useTheme = () => {
   const themes = getFromLS('all-themes')
   const themeFromLS = (getFromLS('theme') && getFromLS('theme').toLowerCase()) || 'light'
   const [theme, setTheme] = useState(themes[themeFromLS])
@@ -20,3 +20,5 @@ export const useTheme = () => {
 
   return { theme, themeLoaded, setMode }
 }
+
+export default useTheme

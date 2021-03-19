@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 // hooks
-import { useTheme } from '../Theme/useTheme'
+import useTheme from '../Hooks/useTheme'
 // utils
 import { getFromLS } from '../Utils/storage'
 // icons

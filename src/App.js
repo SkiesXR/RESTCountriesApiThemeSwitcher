@@ -8,8 +8,8 @@ import IndexPage from './Components/IndexPage'
 import GlobalStyles from './globalStyles'
 import Loader from './Components/Loader'
 // hooks
-import { useFetch } from './Hooks/useFetch'
-import { useTheme } from './Theme/useTheme';
+import useFetch from './Hooks/useFetch'
+import useTheme from './Hooks/useTheme'
 
 function App() {
   const {theme, themeLoaded} = useTheme()

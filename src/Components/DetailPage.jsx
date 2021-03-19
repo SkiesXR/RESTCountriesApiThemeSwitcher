@@ -117,7 +117,6 @@ const Name = styled.h2`
 
 const Grid = styled.div`
   ${FlexColStart};
-  align-items: flex-start;
   width: 100%;
 
   @media (min-width: ${breakpoints.sm}) {

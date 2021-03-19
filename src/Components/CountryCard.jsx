@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 // components
 import DataPair from './DataPair'
-import { breakpoints, FlexColCenter } from './Mixins.js'
+import { breakpoints, FlexColCenter, FlexColStart } from './Mixins.js'
 // utils
 import { numberWithCommas } from '../Utils/format'
 
@@ -22,20 +22,14 @@ const CardContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   animation: ${FadeUp} .25s ease-in;
 
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
+  &:not(:last-child) { margin-bottom: 2rem; }
 
   @media (min-width: ${breakpoints.sm}) {
     transition: transform .15s ease-in;
 
-    &:not(:last-child) {
-      margin-bottom: 0rem;
-    }
+    &:not(:last-child) { margin-bottom: 0rem; }
 
-    &:focus {
-      outline: ${({ theme }) => theme.focusColor};
-    }
+    &:focus { outline: ${({ theme }) => theme.focusColor}; }
 
     &:hover {
       cursor: pointer;
@@ -57,9 +51,7 @@ const FlagImage = styled.img`
 `
 
 const CountryStats = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  ${FlexColStart};
   flex-basis: 60%;
   width: calc(100% - 20px);
   margin-left: 20px;

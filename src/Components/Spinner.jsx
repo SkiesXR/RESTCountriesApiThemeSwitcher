@@ -8,16 +8,16 @@ const Spin = keyframes`
 `
 
 const StyledSpinner = styled.div`
-    display: inline-block;
-    position: relative;
     ${uniformSize(80)};
     margin: 0 auto;
+    position: relative;
+    display: inline-block;
   
     & div {
-      position: absolute;
       ${uniformSize(6)};
-      background: ${({ theme }) => theme.filterBackgroundHover};
+      position: absolute;
       border-radius: 50%;
+      background: ${({ theme }) => theme.filterBackgroundHover};
       animation: ${Spin} 1.2s linear infinite;
 
       &:nth-child(1) {

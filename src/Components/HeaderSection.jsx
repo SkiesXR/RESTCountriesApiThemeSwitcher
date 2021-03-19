@@ -9,11 +9,11 @@ import { breakpoints } from './Mixins'
 /* Styles Begin */
 
 const Container = styled.div`
+  height: 75px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  height: 75px;
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
 

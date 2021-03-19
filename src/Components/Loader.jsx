@@ -4,9 +4,9 @@ import Spinner from './Spinner'
 import { FlexColCenter } from './Mixins'
 
 const LoadingContainer = styled.div`
-  ${FlexColCenter};
   width: 100%;
   margin-top: 100px;
+  ${FlexColCenter};
 `
 
 const LoaderMessage = styled.h1`

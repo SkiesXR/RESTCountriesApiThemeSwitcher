@@ -44,8 +44,7 @@ WRAPPING UP THE BASICS
 - Tablet responsivenes (breakpoint)
 
 OPTIONAL ADD-ONS
-- Accessibility improvements 
-- Create mixins to reduce code
+- Accessibility improvements
 - Create CSS constants
 - Navigate country card grid using arrow keys
 

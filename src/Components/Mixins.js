@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const breakpoints = {
   sm: '576px'
@@ -29,6 +29,15 @@ export const FlexStartCenter = css`
   align-items: center;
   justify-content: flex-start;
 `
+
+export const StyledIcon = (icon) => {
+  const Icon = styled(icon)`
+    ${uniformSize(25)};
+    margin-right: 10px;
+  `
+  return <Icon />
+
+}
 
 export const uniformSize = (size) => {
   return css`

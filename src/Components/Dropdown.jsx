@@ -16,12 +16,12 @@ const fadeIn = keyframes`
 const DropdownContainer = styled.div`
   width: 140px;
   padding: 15px 25px;
-  background: ${({ theme }) => theme.elementBackground};
-  cursor: pointer;
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  border-radius: var(--borderRadius);
   position: relative;
+  border-radius: var(--borderRadius);
+  background: ${({ theme }) => theme.elementBackground};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 
   &:focus {
     outline: ${({ theme }) => theme.focusColor};
@@ -36,8 +36,8 @@ const DropdownHeader = styled.div`
 
 const RegionFilterLabel = styled.div`
   width: 100%;
-  background: ${({ theme }) => theme.elementBackground};
   user-select: none;
+  background: ${({ theme }) => theme.elementBackground};
 
   @media (min-width: ${breakpoints.sm}) {
     font-size: 1rem;
@@ -53,18 +53,18 @@ const StyledIcon = styled(DropdownIcon)`
 `
 
 const RegionOptions = styled.div`
-  ${FlexColStart};
-  line-height: 1.75rem;
   width: 100%;
-  border-radius: var(--borderRadius);
+  ${FlexColStart};
   position: absolute;
   top: 60px;
   left: 0;
   z-index: 2;
+  line-height: 1.75rem;
   font-size: .8rem;
-  animation: ${fadeIn} .25s ease-in;
+  border-radius: var(--borderRadius);
   background: ${({ theme }) => theme.elementBackground};
   box-shadow: ${({ theme }) => theme.boxShadow};
+  animation: ${fadeIn} .25s ease-in;
 `
 
 const RegionOption = styled.div`

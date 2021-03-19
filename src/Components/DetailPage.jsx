@@ -13,24 +13,24 @@ import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 /* Styles Begin */
 
 const Container = styled.div`
-  background: ${({ theme }) => theme.bodyBackground};
-  padding: 0 25px;
   margin: 2rem 0;
+  padding: 0 25px;
+  background: ${({ theme }) => theme.bodyBackground};
 
   @media (min-width: ${breakpoints.sm}) {
-    padding: 0 75px;
     margin: 50px 0;
+    padding: 0 75px;
   }  
 `
 
 const Icon = styled(BackArrow)`
-  margin-right: 10px;
   ${uniformSize(25)};
+  margin-right: 10px;
 `
 
 const Button = styled.div`
-  ${FlexRowCenter};
   width: fit-content;
+  ${FlexRowCenter};
   padding: 7px 15px;
   border-radius: var(--borderRadius);
   background: ${({ theme }) => theme.elementBackground};
@@ -62,8 +62,8 @@ const CountryContainer = styled.div`
   @media (min-width: ${breakpoints.sm}) {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
   }  
 `
 
@@ -73,16 +73,16 @@ const FlagImageContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (min-width: ${breakpoints.sm}) {
-    max-width: 700px;
     width: 50%;
+    max-width: 700px;
 
     &:focus { outline: ${({ theme }) => theme.focusColor}; }
   }  
 `
 
 const FlagImage = styled.img`
-  object-fit: cover;
   width: 100%;
+  object-fit: cover;
 
   @media (min-width: ${breakpoints.sm}) {
     margin-right: 75px;
@@ -90,9 +90,9 @@ const FlagImage = styled.img`
 ` 
 
 const DetailsContainer = styled.div`
+  width: 100%;
   ${FlexColStart};
   align-items: center;
-  width: 100%;
 
   span {
     line-height: 2.25rem;
@@ -100,29 +100,29 @@ const DetailsContainer = styled.div`
   }
 
   @media (min-width: ${breakpoints.sm}) {
+    width: 50%;
     padding-top: 25px;
     padding-left: 50px;
-    flex-wrap: wrap;
     justify-content: space-between;
-    width: 50%;
+    flex-wrap: wrap;
   }  
 `
 
 const Name = styled.h2`
   width: 100%;
-  margin-bottom: 2rem;
   margin-top: 0;
+  margin-bottom: 2rem;
 `
 
 const Grid = styled.div`
-  ${FlexColStart};
   width: 100%;
+  ${FlexColStart};
 
   @media (min-width: ${breakpoints.sm}) {
+    margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2rem;
-    margin-bottom: 3rem;
   }  
 `
 
@@ -133,11 +133,9 @@ const BorderCountriesSection = styled.div`
 `
 
 const BorderCountries = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
   width: 100%;
+  ${FlexStartCenter};
+  flex-wrap: wrap;
 
   div {
     margin-top: 10px;
@@ -155,9 +153,9 @@ const BorderCountries = styled.div`
 `
 
 const BorderCountriesHeader = styled.span`
-  font-weight: bold;
-  user-select: none;
   width: 100%;
+  user-select: none;
+  font-weight: bold;
 
   @media (min-width: ${breakpoints.sm}) {
     width: initial;

@@ -22,14 +22,20 @@ const CardContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   animation: ${FadeUp} .25s ease-in;
 
-  &:not(:last-child) { margin-bottom: 2rem; }
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 
   @media (min-width: ${breakpoints.sm}) {
     transition: transform .15s ease-in;
 
-    &:not(:last-child) { margin-bottom: 0rem; }
+    &:not(:last-child) {
+      margin-bottom: 0rem;
+    }
 
-    &:focus { outline: ${({ theme }) => theme.focusColor}; }
+    &:focus {
+      outline: ${({ theme }) => theme.focusColor};
+    }
 
     &:hover {
       cursor: pointer;
@@ -52,8 +58,8 @@ const FlagImage = styled.img`
 
 const CountryStats = styled.div`
   ${FlexColStart};
-  flex-basis: 60%;
   width: calc(100% - 20px);
+  flex-basis: 60%;
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -65,8 +71,8 @@ const CountryStats = styled.div`
 `
 
 const CountryName = styled.h3`
-  margin-bottom: 10px;
   margin-top: 0;
+  margin-bottom: 10px;
   font-size: 1.75rem;
 
   @media (min-width: ${breakpoints.sm}) {

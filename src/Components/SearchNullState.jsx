@@ -10,10 +10,10 @@ const fadeIn = keyframes`
 `
 
 const Container = styled.div`
-  display:  grid;
-  place-items: center;
   width: 100%;
   margin-top: 5rem;
+  display:  grid;
+  place-items: center;
   animation: ${fadeIn} .25s ease-in;
 `
 

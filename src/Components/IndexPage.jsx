@@ -11,22 +11,22 @@ import { breakpoints, FlexColCenter } from './Mixins'
 /* Styles Begin */
 
 const InputAndFilterSection = styled.div`
-  ${FlexColCenter}
   padding: 2.5rem 25px 0;
+  ${FlexColCenter}
 
   @media (min-width: ${breakpoints.sm}) {
+    padding: 50px 75px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 75px 0;
   }
 `
 
 const CountriesGrid = styled.div`
-  ${FlexColCenter}
   margin-top: 3rem;
   padding: 0 3rem;
+  ${FlexColCenter}
 
   @media (min-width: ${breakpoints.sm}) {
     display: grid;

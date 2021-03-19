@@ -10,18 +10,18 @@ import { ReactComponent as XIcon } from '../Assets/Images/cancel.svg'
 /* Styles Begin */
 
 const SearchContainer = styled.div`
-  display: flex;
-  align-items: center;
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  padding: 1rem 20px;
-  border-radius: var(--borderRadius);
+  width: calc(100% - 40px);
+  max-width: 375px;
   height: 1.5rem;
-  background: ${({ theme }) => theme.elementBackground};
   margin-right: 0;
   margin-bottom: 2.5rem;
-  max-width: 375px;
-  width: calc(100% - 40px);
+  padding: 1rem 20px;
   position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--borderRadius);
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  background: ${({ theme }) => theme.elementBackground};
 
   @media (min-width: ${breakpoints.sm}) {
     width: 375px;
@@ -53,11 +53,11 @@ const SearchIcon = styled(MagnifyingGlassIcon)`
 
 const CancelSearchIcon = styled(XIcon)`
   width: 15px;
+  display: ${({ $inputValue }) => !$inputValue && 'none'};
   position: absolute;
   top: 50%;
   right: 25px;
   transform: translate(-50%, -50%);
-  display: ${({ $inputValue }) => !$inputValue && 'none'};
   outline: none;
 
   &:hover {
@@ -72,8 +72,8 @@ const CancelSearchIcon = styled(XIcon)`
 const TextInput = styled.input`
   border: none;
   background: none;
-  caret-color: ${({ theme }) => theme.cursorColor};
   color: ${({ theme }) => theme.color};
+  caret-color: ${({ theme }) => theme.cursorColor};
   font-size: 1rem;
   
   ::placeholder { opacity: .8; }
@@ -86,9 +86,9 @@ const TextInput = styled.input`
 `
 
 const AccessibilityLabel = styled.label`
+  width: 0;
   position: absolute;
   opacity: 0;
-  width: 0;
   overflow: hidden;
 `
 

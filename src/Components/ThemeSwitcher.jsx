@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 // hooks
 import useTheme from '../Hooks/useTheme'
 // utils
-import { FlexRowCenter } from './Mixins'
+import { FlexRowCenter, StyledIcon } from './Mixins'
 import { getFromLS } from '../Utils/storage'
 // icons
 import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
@@ -17,18 +17,6 @@ const ThemeSwitcherSection = styled.div `
   &:hover {
     cursor: pointer;
   }
-`
-
-const DarkIcon = styled(DarkThemeIcon)`
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
-`
-
-const LightIcon = styled(LightThemeIcon)`
-  width: 25px;
-  height: 25px;
-  margin-right: 10px;
 `
 
 const ThemeText = styled.span`
@@ -55,7 +43,7 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 
   return (
     <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
-      {isLightTheme ? <LightIcon /> : <DarkIcon /> }
+      {isLightTheme ? StyledIcon(LightThemeIcon) : StyledIcon(DarkThemeIcon) }
       <ThemeText>{isLightTheme ? `${light.name} Mode` : `${dark.name} Mode` }</ThemeText> 
     </ThemeSwitcherSection>
   )

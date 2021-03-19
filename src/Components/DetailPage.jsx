@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
-import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter, uniformSize } from './Mixins'
+import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 // utils
 import { numberWithCommas } from '../Utils/format'
+import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter, uniformSize } from './Mixins'
 // icons
-import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 
 /* Styles Begin */
 

@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import PropTypes from 'prop-types'
+// components
+import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
+import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg'
 // hooks
 import useTheme from '../Hooks/useTheme'
 // utils
-import { FlexRowCenter, StyledIcon } from './Mixins'
 import { getFromLS } from '../Utils/storage'
-// icons
-import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
-import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg'
+import { FlexRowCenter, StyledIcon } from './Mixins'
 
 /* Styles Begin */
 

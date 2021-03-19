@@ -1,12 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types' 
+import { useHistory } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 // components
 import DataPair from './DataPair'
-import { breakpoints, FlexColCenter, FlexColStart } from './Mixins.js'
 // utils
 import { numberWithCommas } from '../Utils/format'
+import { breakpoints, FlexColCenter, FlexColStart } from './Mixins.js'
 
 /* Styles Begin */
 

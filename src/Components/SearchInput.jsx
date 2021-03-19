@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// utils
-import { breakpoints } from './Mixins'
-// icons
+// components
 import { ReactComponent as MagnifyingGlassIcon } from '../Assets/Images/search.svg'
 import { ReactComponent as XIcon } from '../Assets/Images/cancel.svg'
+// utils
+import { breakpoints } from './Mixins'
 
 /* Styles Begin */
 

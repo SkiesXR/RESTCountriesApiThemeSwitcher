@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 // components
-import { breakpoints, FlexColStart } from './Mixins'
-// icons
 import { ReactComponent as DropdownIcon } from '../Assets/Images/arrow.svg'
+// utils
+import { breakpoints, FlexColStart } from './Mixins'
 
 /* Styles Begin */
 

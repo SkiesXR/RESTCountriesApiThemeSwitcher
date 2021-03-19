@@ -39,16 +39,14 @@ export default App;
 /* TODO:
 WRAPPING UP THE BASICS
 - Finalize icons
-- Fix theme-switching for icons & theme text
+- Fix theme-switching for icons
 - Error message for API error
 - Tablet responsivenes (breakpoint)
 
 OPTIONAL ADD-ONS
 - Accessibility improvements 
-- Speech Recognition
 - Create mixins to reduce code
 - Create CSS constants
-- Add proptypes
 - Navigate country card grid using arrow keys
 
 CLEANUP

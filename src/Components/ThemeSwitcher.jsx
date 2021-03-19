@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 // hooks
 import useTheme from '../Hooks/useTheme'
 // utils
+import { FlexRowCenter } from './Mixins'
 import { getFromLS } from '../Utils/storage'
 // icons
 import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
@@ -11,9 +12,7 @@ import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg
 /* Styles Begin */
 
 const ThemeSwitcherSection = styled.div `
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${FlexRowCenter};
 
   &:hover {
     cursor: pointer;

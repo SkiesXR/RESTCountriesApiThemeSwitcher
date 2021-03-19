@@ -69,9 +69,7 @@ const RegionOptions = styled.div`
 
 const RegionOption = styled.div`
   width: calc(100% - 25px);
-  padding-left: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 0 5px 25px;
   user-select: none;
   font-size: 1.25rem;
   line-height: 2rem;

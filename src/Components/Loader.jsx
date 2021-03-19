@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Spinner from './Spinner'
+import { FlexColCenter } from './Mixins'
 
 const LoadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${FlexColCenter};
   width: 100%;
   margin-top: 100px;
 `

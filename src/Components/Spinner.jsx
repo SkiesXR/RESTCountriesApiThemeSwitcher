@@ -1,22 +1,21 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { uniformSize } from './Mixins'
 
 const Spin = keyframes`
-  0%, 20%, 80%, 100% { transform: scale(1);}
-  50% { transform: scale(1.5);}
+  0%, 20%, 80%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
 `
 
 const StyledSpinner = styled.div`
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    ${uniformSize(80)};
     margin: 0 auto;
   
     & div {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      ${uniformSize(6)};
       background: ${({ theme }) => theme.filterBackgroundHover};
       border-radius: 50%;
       animation: ${Spin} 1.2s linear infinite;

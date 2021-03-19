@@ -29,3 +29,10 @@ export const FlexStartCenter = css`
   align-items: center;
   justify-content: flex-start;
 `
+
+export const uniformSize = (size) => {
+  return css`
+    width: ${size}px;
+    height: ${size}px;
+  `
+}

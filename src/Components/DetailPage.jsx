@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
-import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter } from './Mixins'
+import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter, uniformSize } from './Mixins'
 // utils
 import { numberWithCommas } from '../Utils/format'
 // icons
@@ -25,8 +25,7 @@ const Container = styled.div`
 
 const Icon = styled(BackArrow)`
   margin-right: 10px;
-  width: 25px;
-  height: 25px;
+  ${uniformSize(25)};
 `
 
 const Button = styled.div`

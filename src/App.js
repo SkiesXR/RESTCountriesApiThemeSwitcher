@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 // components
 import HeaderSection from './Components/HeaderSection'
@@ -21,6 +21,9 @@ function App() {
     const routes = (
       <Switch>
         <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
+        <Route exact path='/detail'>
+          <Redirect to={{ pathname: '/' }}/>
+        </Route>
         <Route path='/'><IndexPage data={data} /></Route>
       </Switch>
     )

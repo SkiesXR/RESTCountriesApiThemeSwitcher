@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 // components
@@ -14,21 +14,30 @@ import useTheme from './Hooks/useTheme'
 function App() {
   const {theme, themeLoaded} = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
+  const [switchedRoutes, setSwitchedRoutes] = useState(null)
   const { error, isLoading, response: data } = useFetch('https://restcountries.eu/rest/v2/all', {})
 
-  if (error) return <div>Sorry! Please try again later</div>
+  useEffect(() => {
+    const routes = (
+      <Switch>
+        <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
+        <Route path='/'><IndexPage data={data} /></Route>
+      </Switch>
+    )
+
+    // Delay state change to allow loading animation to complete
+    if (!isLoading) setTimeout(() => setSwitchedRoutes(routes), 1000)
+  }, [isLoading, data])
+
+  if (error) return <div>Sorry! It looks like the API is experiencing issues. Please try again later</div>
 
   return (
     <>
-    {themeLoaded && <ThemeProvider theme={selectedTheme}>
+    {themeLoaded &&
+      <ThemeProvider theme={selectedTheme}>
         <GlobalStyles />
         <HeaderSection theme={selectedTheme} setTheme={setSelectedTheme} />
-        {!isLoading ? (
-          <Switch>
-            <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
-            <Route path='/'><IndexPage data={data} /></Route>
-          </Switch>
-        ) : <Loader />}
+        {switchedRoutes ?? <Loader />}
       </ThemeProvider>}
     </>
   )
@@ -45,11 +54,9 @@ WRAPPING UP THE BASICS
 
 OPTIONAL ADD-ONS
 - Accessibility improvements
-- Create CSS constants
 - Navigate country card grid using arrow keys
 
 CLEANUP
-- Organize CSS
 - Organize file hierarchy & naming
 
 TESTING

@@ -185,10 +185,13 @@ const DetailPage = ({ data }) => {
   }, [data])
 
   useEffect(() => {
-    const country = data.find(country => country.numericCode === id)
-    if (country) {
-      setCountry(country)
-      setBorderCountries(generateBorderCountries(country))
+    if (data) {
+      const country = data.find(country => country.numericCode === id)
+
+      if (country) {
+        setCountry(country)
+        setBorderCountries(generateBorderCountries(country))
+      }
     }
   }, [data, generateBorderCountries, id])
 

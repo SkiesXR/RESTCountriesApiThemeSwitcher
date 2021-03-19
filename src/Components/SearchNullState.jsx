@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 
 /* Styles Begin */
@@ -38,3 +39,11 @@ const SearchNullState = ({ query }) => {
 }
 
 export default SearchNullState
+
+SearchNullState.defaultProps = {
+  query: ''
+}
+
+SearchNullState.propTypes = {
+  query: PropTypes.string.isRequired,
+}

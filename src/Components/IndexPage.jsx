@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // components
 import CountryCard from './CountryCard'
@@ -114,4 +115,8 @@ export default IndexPage
 
 IndexPage.defaultProps = {
   data: []
+}
+
+IndexPage.propTypes = {
+  data: PropTypes.array.isRequired
 }

@@ -1,6 +1,7 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
 import { useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types' 
+import styled, { keyframes } from 'styled-components'
 // components
 import DataPair from './DataPair'
 import { breakpoints, FlexColCenter } from './Mixins.js'
@@ -116,3 +117,7 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
 }
 
 export default CountryCard
+
+CountryCard.propTypes = {
+  data: PropTypes.object.isRequired
+}

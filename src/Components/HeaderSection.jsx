@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // components
 import ThemeSwitcher from './ThemeSwitcher'
@@ -40,3 +41,8 @@ const HeaderSection = ({ theme, setTheme }) => {
 }
 
 export default HeaderSection
+
+HeaderSection.propTypes = {
+  theme: PropTypes.object.isRequired,
+  setTheme: PropTypes.func.isRequired,
+}

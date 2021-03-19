@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import PropTypes from 'prop-types'
 // hooks
 import { useTheme } from '../Theme/useTheme'
 // utils
@@ -62,3 +63,8 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 }
 
 export default ThemeSwitcher
+
+ThemeSwitcher.propTypes = {
+  theme: PropTypes.object.isRequired,
+  setTheme: PropTypes.func.isRequired,
+}

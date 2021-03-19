@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types' 
 import styled from 'styled-components'
 
 const StyledDataPair = styled.span`
@@ -13,3 +14,16 @@ const DataPair = ({ children, label, tab }) => (
 )
 
 export default DataPair
+
+DataPair.defaultProps = {
+  tab: false
+}
+
+DataPair.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]).isRequired,
+  label: PropTypes.string.isRequired,
+  tab: PropTypes.bool,
+}

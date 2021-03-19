@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // utils
 import { breakpoints } from './Mixins'
@@ -132,3 +133,8 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
 }
 
 export default SearchInput
+
+SearchInput.propTypes = {
+  countryFilter: PropTypes.string.isRequired,
+  setCountryFilter: PropTypes.func.isRequired
+}

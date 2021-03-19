@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from 'styled-components'
 // components
 import HeaderSection from './Components/HeaderSection'
 import DetailPage from './Components/DetailPage'

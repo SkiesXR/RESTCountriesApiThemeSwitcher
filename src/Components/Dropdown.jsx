@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 // components
 import { breakpoints, FlexColStart } from './Mixins'
@@ -148,4 +149,10 @@ export default Dropdown
 
 Dropdown.defaultProps = {
   regions: []
+}
+
+Dropdown.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  regions: PropTypes.array.isRequired,
+  regionFilter: PropTypes.string,
 }

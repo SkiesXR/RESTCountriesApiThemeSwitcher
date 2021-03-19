@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
@@ -259,3 +260,7 @@ const DetailPage = ({ data }) => {
 }
 
 export default DetailPage
+
+DetailPage.propTypes = {
+  data: PropTypes.array.isRequired,
+}

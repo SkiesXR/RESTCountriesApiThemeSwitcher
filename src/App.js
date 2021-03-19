@@ -21,10 +21,8 @@ function App() {
     const routes = (
       <Switch>
         <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
-        <Route exact path='/detail'>
-          <Redirect to={{ pathname: '/' }}/>
-        </Route>
-        <Route path='/'><IndexPage data={data} /></Route>
+        <Route exact path='/'><IndexPage data={data} /></Route>
+        <Redirect to={{ pathname: '/' }}/>
       </Switch>
     )
 

@@ -52,10 +52,10 @@ WRAPPING UP THE BASICS
 - Fix theme-switching for icons
 - Error message for API error
 - Tablet responsivenes (breakpoint)
+- Apply focus styles globally
+- Accessibility improvements
 
 OPTIONAL ADD-ONS
-- Accessibility improvements
-- Navigate country card grid using arrow keys
 - Set timeout and return error if loading takes too long
 
 TESTING

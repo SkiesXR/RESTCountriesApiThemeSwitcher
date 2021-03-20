@@ -25,6 +25,8 @@ const Container = styled.div`
 
 const AppNameText = styled.h3`
   user-select: none;
+
+  &:focus { outline: ${({ theme }) => theme.focusColor}; }
   &:hover { cursor: pointer; }
 `
 
@@ -35,7 +37,14 @@ const HeaderSection = ({ theme, setTheme }) => {
 
   return (
     <Container>
-      <AppNameText onClick={() => history.push('/')}>Where in the world?</AppNameText>
+      <AppNameText
+        aria-label='Index page'
+        onClick={() => history.push('/')}
+        role='link'
+        tabIndex='0'
+      >
+        Where in the world?
+      </AppNameText>
       <ThemeSwitcher theme={theme} setTheme={setTheme}/>
     </Container>
   )

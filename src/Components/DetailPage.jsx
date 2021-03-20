@@ -112,6 +112,8 @@ const Name = styled.h2`
   width: 100%;
   margin-top: 0;
   margin-bottom: 2rem;
+
+  &:focus { outline: ${({ theme }) => theme.focusColor}; }
 `
 
 const Grid = styled.div`
@@ -161,6 +163,8 @@ const BorderCountriesHeader = styled.span`
     width: initial;
     margin-top: 10px;
     margin-right: 20px;
+
+    &:focus { outline: ${({ theme }) => theme.focusColor}; }
   }  
 `
 
@@ -204,10 +208,12 @@ const DetailPage = ({ data }) => {
   const renderBorderCountries = () => {
     return Object.values(borderCountries).map(country => (
       <Button
+        aria-label={`Click here to learn more about ${country.name}`}
         key={country.code}
         onClick={() => history.push(`/detail/${country.code}`)}
         onKeyDown={(e) => e.key === 'Enter' && history.push(`/detail/${country.code}`)}
         onMouseDown={(e) => e.preventDefault()}
+        role='link'
         tabIndex='0'
       >
         {country.name}
@@ -222,6 +228,7 @@ const DetailPage = ({ data }) => {
         onKeyDown={(e) => e.key === 'Enter' && history.push('/')}
         onMouseDown={(e) => e.preventDefault()}
         tabIndex='0'
+        role='button'
       >
         <Icon />
         <span>Back</span>
@@ -231,7 +238,7 @@ const DetailPage = ({ data }) => {
           <FlagImage src={flag} alt={`${name} flag`} />
         </FlagImageContainer>
         <DetailsContainer>
-          <Name>{name}</Name>
+          <Name tabIndex='0'>{name}</Name>
           <Grid>
             <DataPair label='Native Name' tab>{nativeName}</DataPair>
             <DataPair label='Top Level Domain' tab>{topLevelDomain}</DataPair>
@@ -245,7 +252,7 @@ const DetailPage = ({ data }) => {
           <BorderCountriesSection>
             {Object.values(borderCountries).length
               ? (<>
-                  <BorderCountriesHeader>Border Countries: </BorderCountriesHeader>
+                  <BorderCountriesHeader role='heading' tabIndex='0'>Border Countries: </BorderCountriesHeader>
                   <BorderCountries>
                     {renderBorderCountries()}
                   </BorderCountries>

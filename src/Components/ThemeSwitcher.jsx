@@ -25,6 +25,8 @@ const ThemeTextWrapper = styled.span`
   text-transform: capitalize;
   user-select: none;
   font-weight: 400;
+
+  &:focus { outline: ${({ theme }) => theme.focusColor}; }
 `
 
 /* Styles End */
@@ -48,7 +50,7 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
   return (
     <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
       {themeIcon}
-      <ThemeTextWrapper>{themeText}</ThemeTextWrapper> 
+      <ThemeTextWrapper aria-label='Switch website color theme' role='button' tabIndex='0'>{themeText}</ThemeTextWrapper>
     </ThemeSwitcherSection>
   )
 }

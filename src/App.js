@@ -56,6 +56,7 @@ WRAPPING UP THE BASICS
 OPTIONAL ADD-ONS
 - Accessibility improvements
 - Navigate country card grid using arrow keys
+- Set timeout and return error if loading takes too long
 
 TESTING
 - Test on major browsers: Chrome, Firefox, Safari, Edge

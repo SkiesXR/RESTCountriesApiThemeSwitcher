@@ -18,8 +18,10 @@ const ThemeSwitcherSection = styled.div `
     cursor: pointer;
   }
 `
+const LightIcon = StyledIcon(LightThemeIcon)
+const DarkIcon = StyledIcon(DarkThemeIcon)
 
-const ThemeText = styled.span`
+const ThemeTextWrapper = styled.span`
   text-transform: capitalize;
   user-select: none;
   font-weight: 400;
@@ -35,6 +37,8 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
   if (!theme) return null
   
   const isLightTheme = theme.name === 'Light'
+  const themeIcon = isLightTheme ? LightIcon : DarkIcon
+  const themeText = isLightTheme ? `${light.name} Mode` : `${dark.name} Mode`
 
   const switchThemes = (selectedTheme) => {
     setMode(selectedTheme.name);
@@ -43,8 +47,8 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
 
   return (
     <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
-      {isLightTheme ? StyledIcon(LightThemeIcon) : StyledIcon(DarkThemeIcon) }
-      <ThemeText>{isLightTheme ? `${light.name} Mode` : `${dark.name} Mode` }</ThemeText> 
+      {themeIcon}
+      <ThemeTextWrapper>{themeText}</ThemeTextWrapper> 
     </ThemeSwitcherSection>
   )
 }

@@ -57,9 +57,6 @@ OPTIONAL ADD-ONS
 - Accessibility improvements
 - Navigate country card grid using arrow keys
 
-CLEANUP
-- Organize file hierarchy & naming
-
 TESTING
 - Test on major browsers: Chrome, Firefox, Safari, Edge
 - Test on mobile & tablet

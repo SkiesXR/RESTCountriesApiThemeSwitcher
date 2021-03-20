@@ -260,6 +260,10 @@ const DetailPage = ({ data }) => {
 
 export default DetailPage
 
+DetailPage.defaultProps = {
+  data: []
+}
+
 DetailPage.propTypes = {
   data: PropTypes.array.isRequired,
 }

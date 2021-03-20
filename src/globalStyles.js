@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.bodyBackground};
     font-family: Nunito Sans Light, Sans-Serif;
     font-weight: 300;
+    transition: all .15s ease-in;
   }
 
   button {

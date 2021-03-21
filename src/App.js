@@ -43,21 +43,3 @@ function App() {
 }
 
 export default App;
-
-/* TODO:
-
-OPTIONAL
-- Animated svgs for error message
-
-TESTING
-- Test on major browsers: Chrome, Firefox, Safari, Edge
-- Test on mobile & tablet
-
-BUILD
-- Gzip
-- Prod build
-- Heroku deployment
-
-POST-BUILD
-- READme
-*/

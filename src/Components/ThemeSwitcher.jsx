@@ -49,7 +49,7 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
   }
 
   const handleKeyDown = (e) => {
-    e.key = 'Enter' && switchThemes()
+    e.key === 'Enter' && switchThemes()
   }
 
   return (

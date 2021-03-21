@@ -21,7 +21,7 @@ function App() {
     const routes = (
       <Switch>
         <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
-        <Route exact path='/'><IndexPage data={data} error={error} theme={theme} /></Route>
+        <Route exact path='/'><IndexPage data={data} error={error} theme={selectedTheme} /></Route>
         <Redirect to={{ pathname: '/' }}/>
       </Switch>
     )
@@ -47,8 +47,6 @@ export default App;
 /* TODO:
 
 OPTIONAL
-- Custom favicon
-- Animate theme icon during transition
 - Animated svgs for error message
 
 TESTING

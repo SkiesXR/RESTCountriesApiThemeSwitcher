@@ -79,7 +79,7 @@ const IndexPage = ({ data, error, theme }) => {
   }
   
   if (error) return <ErrorMessage />
-  if (!data) return null
+  if (!data || !data.length) return null
 
   return (
     <>

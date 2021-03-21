@@ -70,5 +70,6 @@ Used sparingly but purposefully, these help: guide the user's attention, communi
 - Web Accessibility
 - Keyboard Navigation
 - Responsive design
+- Icon design
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

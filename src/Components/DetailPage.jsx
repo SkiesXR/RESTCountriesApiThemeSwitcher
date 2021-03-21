@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
-import DataPair from './DataPair'
+import CountryDetailsGrid from './CountryDetailsGrid'
 import ErrorMessage from './ErrorMessage'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 // utils
-import { numberWithCommas } from '../Utils/format'
 import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter, uniformSize } from './Mixins'
-// icons
 
 /* Styles Begin */
 
@@ -186,7 +184,7 @@ const DetailPage = ({ data, error }) => {
   const { id } = useParams()
   const [country, setCountry] = useState({})
   const [borderCountries, setBorderCountries] = useState({})
-  const { capital, currencies, flag, languages, name, nativeName, population, region, subregion, topLevelDomain } = country
+  const { flag, name } = country
 
   // Build a collection of border countries
   // Shape = { countryName: { name: countryName, code: numericCode } }
@@ -214,9 +212,6 @@ const DetailPage = ({ data, error }) => {
 
   if (error) return <ErrorMessage />
   if (!Object.keys(country).length) return null
-
-  const renderCurrencies = () => currencies.map(cur => cur.code).join(', ')
-  const renderLanguages = () => languages.map(lang => lang.name).join(', ')
 
   // Render a list of buttons linking to border countries
   const renderBorderCountries = () => {
@@ -253,16 +248,7 @@ const DetailPage = ({ data, error }) => {
         </FlagImageContainer>
         <DetailsContainer>
           <Name tabIndex='0'>{name}</Name>
-          <Grid>
-            <DataPair label='Native Name' tab>{nativeName}</DataPair>
-            <DataPair label='Top Level Domain' tab>{topLevelDomain}</DataPair>
-            <DataPair label='Population' tab>{numberWithCommas(population)}</DataPair>
-            <DataPair label='Currencies' tab>{renderCurrencies()}</DataPair>
-            <DataPair label='Region' tab>{region}</DataPair>
-            <DataPair label='Languages' tab>{renderLanguages()}</DataPair>
-            <DataPair label='Sub Region' tab>{subregion}</DataPair>
-            <DataPair label='Capital' tab>{capital}</DataPair>
-          </Grid>
+          <CountryDetailsGrid country={country} />
           <BorderCountriesSection>
             {Object.values(borderCountries).length
               ? (<>

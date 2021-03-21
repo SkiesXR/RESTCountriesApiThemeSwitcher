@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useHistory, useParams } from 'react-router-dom'
 // components
 import DataPair from './DataPair'
+import ErrorMessage from './ErrorMessage'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 // utils
 import { numberWithCommas } from '../Utils/format'
@@ -168,7 +169,7 @@ const BorderCountriesHeader = styled.span`
   }  
 `
 
-const DetailPage = ({ data }) => {
+const DetailPage = ({ data, error }) => {
   const history = useHistory()
   const { id } = useParams()
   const [country, setCountry] = useState({})
@@ -199,6 +200,7 @@ const DetailPage = ({ data }) => {
     }
   }, [data, generateBorderCountries, id])
 
+  if (error) return <ErrorMessage />
   if (!Object.keys(country).length) return null
 
   const renderCurrencies = () => currencies.map(cur => cur.code).join(', ')
@@ -273,4 +275,5 @@ DetailPage.defaultProps = {
 
 DetailPage.propTypes = {
   data: PropTypes.array.isRequired,
+  error: PropTypes.object
 }

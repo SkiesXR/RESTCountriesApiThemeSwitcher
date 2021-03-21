@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // components
 import CountryCard from './CountryCard'
+import ErrorMessage from './ErrorMessage'
 import Dropdown from './Dropdown'
 import SearchInput from './SearchInput'
 import SearchNullState from './SearchNullState'
@@ -42,7 +43,7 @@ const CountriesGrid = styled.div`
 
 const defaultRegionFilterOption = 'Filter by Region'
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, error }) => {
   const [regionFilter, setRegionFilter] = useState(defaultRegionFilterOption)
   const [countryFilter, setCountryFilter] = useState('')
 
@@ -77,6 +78,7 @@ const IndexPage = ({ data }) => {
     return options.filter(option => option !== regionFilter)
   }
   
+  if (error) return <ErrorMessage />
   if (!data) return null
 
   return (
@@ -108,5 +110,6 @@ IndexPage.defaultProps = {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  error: PropTypes.object
 }

@@ -27,6 +27,10 @@ const Container = styled.div`
 const Icon = styled(BackArrow)`
   ${uniformSize(25)};
   margin-right: 10px;
+
+  * {
+    fill: ${({ theme }) => theme.color}
+  }
 `
 
 const Button = styled.div`

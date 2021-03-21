@@ -40,6 +40,7 @@ const HeaderSection = ({ theme, setTheme }) => {
       <AppNameText
         aria-label='Index page'
         onClick={() => history.push('/')}
+        onMouseDown={(e) => e.preventDefault()}
         role='link'
         tabIndex='0'
       >

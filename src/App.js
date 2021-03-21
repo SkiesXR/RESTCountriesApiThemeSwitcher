@@ -20,8 +20,8 @@ function App() {
   useEffect(() => {
     const routes = (
       <Switch>
-        <Route exact path='/detail/:id'><DetailPage data={data} /></Route>
-        <Route exact path='/'><IndexPage data={data} /></Route>
+        <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
+        <Route exact path='/'><IndexPage data={data} error={error} /></Route>
         <Redirect to={{ pathname: '/' }}/>
       </Switch>
     )
@@ -29,8 +29,6 @@ function App() {
     // Delay state change to allow loading animation to complete
     if (!isLoading) setTimeout(() => setSwitchedRoutes(routes), 1000)
   }, [isLoading, data])
-
-  if (error) return <div>Sorry! It looks like the API is experiencing issues. Please try again later</div>
 
   return (
     <>
@@ -53,10 +51,6 @@ WRAPPING UP THE BASICS
 - Error message for API error
 - Tablet responsivenes (breakpoint)
 - Apply focus styles globally
-- Accessibility improvements
-
-OPTIONAL ADD-ONS
-- Set timeout and return error if loading takes too long
 
 TESTING
 - Test on major browsers: Chrome, Firefox, Safari, Edge

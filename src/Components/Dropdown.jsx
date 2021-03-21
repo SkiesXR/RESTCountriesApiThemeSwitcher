@@ -98,7 +98,6 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
         key={region}
         onClick={() => onChange(region)}
         role='option'
-        tabIndex='0'
       >
         {region}
       </RegionOption>

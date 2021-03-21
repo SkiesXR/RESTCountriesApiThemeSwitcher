@@ -96,9 +96,11 @@ const CountryCard = ({ data: { capital, flag, name, numericCode, population, reg
 
   return (
     <CardContainer
+      aria-label={`${name} country card`}
       onClick={() => history.push(`/detail/${numericCode}`)}
       onKeyDown={handleOnKeyDown}
       onMouseDown={(e) => e.preventDefault()}
+      role='cell'
       tabIndex='0'
     >
       <FlagImageContainer>

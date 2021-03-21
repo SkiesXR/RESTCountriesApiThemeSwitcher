@@ -82,25 +82,18 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <InputAndFilterSection>
-        <SearchInput
-          countryFilter={countryFilter}
-          setCountryFilter={setCountryFilter}
-        />
-        {filteredData.length ? <Dropdown
-          onChange={setRegionFilter}
-          regionFilter={regionFilter}
-          regions={getRegionOptions()}
-        /> : null}
+        <SearchInput countryFilter={countryFilter} setCountryFilter={setCountryFilter}/>
+        {filteredData.length
+          ? <Dropdown
+            onChange={setRegionFilter}
+            regionFilter={regionFilter}
+            regions={getRegionOptions()}
+          /> : null}
       </InputAndFilterSection>
       {filteredData.length
         ? (
-          <CountriesGrid>
-            {filteredData.map(country =>
-              <CountryCard
-                data={country}
-                key={country.alpha3Code}
-              />
-            )}
+          <CountriesGrid role='grid'>
+            {filteredData.map(country => <CountryCard data={country} key={country.alpha3Code}/>)}
           </CountriesGrid>
         ) : <SearchNullState query={countryFilter}/>
       }

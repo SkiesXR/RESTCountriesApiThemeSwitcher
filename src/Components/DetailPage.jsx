@@ -234,7 +234,7 @@ const DetailPage = ({ data }) => {
         <span>Back</span>
       </Button>
       <CountryContainer>
-        <FlagImageContainer tabIndex='0' aria-label={`${name} flag`}>
+        <FlagImageContainer aria-label={`${name} flag`} role='image' tabIndex='0' >
           <FlagImage src={flag} alt={`${name} flag`} />
         </FlagImageContainer>
         <DetailsContainer>

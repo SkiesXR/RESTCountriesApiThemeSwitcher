@@ -94,9 +94,11 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
     regions.map((region, index) =>
       <RegionOption
         active={optionIndex === index}
+        aria-label={`Filter for countries in ${region}`}
         key={region}
         onClick={() => onChange(region)}
         role='option'
+        tabIndex='0'
       >
         {region}
       </RegionOption>
@@ -134,7 +136,7 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
       onKeyDown={handleKeyDown}
       tabIndex={0}  // required for onBlur event to fire
     >
-      <DropdownHeader role='listbox'>
+      <DropdownHeader aria-label='Filter countries by region' role='listbox'>
         <RegionFilterLabel>{regionFilter}</RegionFilterLabel>
         <StyledIcon $isDropdownOpen={isOpen} />
       </DropdownHeader>

@@ -109,9 +109,9 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
   }
 
   return (
-    <SearchContainer onClick={() => textInputRef.current.focus()}>
+    <SearchContainer onClick={() => textInputRef.current.focus()} role='search'>
       <SearchIcon />
-      <AccessibilityLabel htmlFor='search'/>
+      <AccessibilityLabel htmlFor='search'>Search for a country</AccessibilityLabel>
       <TextInput
         id='search'
         onChange={handleChange}

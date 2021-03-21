@@ -48,16 +48,12 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
     setTheme(newTheme)
   }
 
-  const handleKeyDown = (e) => {
-    e.key === 'Enter' && switchThemes()
-  }
-
   return (
     <ThemeSwitcherSection onClick={switchThemes}>
       {themeIcon}
       <ThemeTextWrapper
         aria-label='Switch website color theme'
-        onKeyDown={handleKeyDown}
+        onKeyDown={(e) => e.key === 'Enter' && switchThemes()}
         onMouseDown={(e) => e.preventDefault()}
         role='button'
         tabIndex='0'

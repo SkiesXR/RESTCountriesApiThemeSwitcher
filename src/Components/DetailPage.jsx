@@ -61,6 +61,10 @@ const CountryContainer = styled.div`
   margin-top: 50px;
 
   @media (min-width: ${breakpoints.sm}) {
+    align-items: flex-start;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -74,6 +78,10 @@ const FlagImageContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (min-width: ${breakpoints.sm}) {
+    width: 60%;
+  }
+
+  @media (min-width: ${breakpoints.md}) {
     width: 50%;
     max-width: 700px;
 
@@ -100,7 +108,7 @@ const DetailsContainer = styled.div`
     font-size: 1.25rem;
   }
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${breakpoints.md}) {
     width: 50%;
     padding-top: 25px;
     padding-left: 50px;

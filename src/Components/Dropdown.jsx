@@ -14,7 +14,7 @@ const fadeIn = keyframes`
 `
 
 const DropdownContainer = styled.div`
-  width: 140px;
+  min-width: 140px;
   padding: 15px 25px;
   position: relative;
   border-radius: var(--borderRadius);
@@ -133,7 +133,8 @@ const Dropdown = ({ onChange, regions, regionFilter }) => {
       onBlur={() => setIsOpen(false)}
       onClick={() => setIsOpen(prevState => !prevState)}
       onKeyDown={handleKeyDown}
-      tabIndex={0}  // required for onBlur event to fire
+      onMouseDown={(e) => e.preventDefault()}
+      tabIndex='0'  // required for onBlur event to fire
     >
       <DropdownHeader aria-label='Filter countries by region' role='listbox'>
         <RegionFilterLabel>{regionFilter}</RegionFilterLabel>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, Route, HashRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 // components
 import HeaderSection from './Components/HeaderSection'
@@ -19,11 +19,11 @@ function App() {
 
   useEffect(() => {
     const routes = (
-      <Switch>
+      <HashRouter>
         <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
         <Route exact path='/'><IndexPage data={data} error={error} theme={selectedTheme} /></Route>
         <Redirect to={{ pathname: '/' }}/>
-      </Switch>
+      </HashRouter>
     )
 
     // Delay state change to allow loading animation to complete

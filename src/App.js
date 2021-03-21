@@ -21,7 +21,7 @@ function App() {
     const routes = (
       <Switch>
         <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
-        <Route exact path='/'><IndexPage data={data} error={error} /></Route>
+        <Route exact path='/'><IndexPage data={data} error={error} theme={theme} /></Route>
         <Redirect to={{ pathname: '/' }}/>
       </Switch>
     )
@@ -48,9 +48,11 @@ export default App;
 WRAPPING UP THE BASICS
 - Finalize icons
 - Fix theme-switching for icons
-- Error message for API error
-- Tablet responsivenes (breakpoint)
-- Apply focus styles globally
+
+OPTIONAL
+- Custom favicon
+- Animate theme icon during transition
+- Animated svgs for error message
 
 TESTING
 - Test on major browsers: Chrome, Firefox, Safari, Edge

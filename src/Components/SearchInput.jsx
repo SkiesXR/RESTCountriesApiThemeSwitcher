@@ -3,11 +3,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // components
 import { ReactComponent as MagnifyingGlassIcon } from '../Assets/Images/search.svg'
-import { ReactComponent as XIcon } from '../Assets/Images/cancel.svg'
+import { ReactComponent as CancelDarkIcon } from '../Assets/Images/cancel_dark_theme.svg'
+import { ReactComponent as CancelLightIcon } from '../Assets/Images/cancel_light_theme.svg'
 // utils
-import { breakpoints } from './Mixins'
+import { breakpoints, StyledCancelIcon } from './Mixins'
 
 /* Styles Begin */
+
+const StyledDarkIcon = StyledCancelIcon(CancelDarkIcon)
+const StyledLightIcon = StyledCancelIcon(CancelLightIcon)
 
 const SearchContainer = styled.div`
   width: calc(100% - 40px);
@@ -51,24 +55,6 @@ const SearchIcon = styled(MagnifyingGlassIcon)`
   }
 `
 
-const CancelSearchIcon = styled(XIcon)`
-  width: 15px;
-  display: ${({ $inputValue }) => !$inputValue && 'none'};
-  position: absolute;
-  top: 50%;
-  right: 25px;
-  transform: translate(-50%, -50%);
-  outline: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  * {
-    stroke: #dfdfdf;
-  }
-`
-
 const TextInput = styled.input`
   border: none;
   background: none;
@@ -94,8 +80,9 @@ const AccessibilityLabel = styled.label`
 
 /* Styles End */
 
-const SearchInput = ({ countryFilter, setCountryFilter }) => {
+const SearchInput = ({ countryFilter, setCountryFilter, theme }) => {
   const textInputRef = useRef()
+  const CancelIcon = theme.name === 'light' ? StyledLightIcon : StyledDarkIcon
 
   const handleChange = (e) => {
     const { value } = e.target
@@ -120,7 +107,7 @@ const SearchInput = ({ countryFilter, setCountryFilter }) => {
         type='text'
         value={countryFilter}
       />
-      <CancelSearchIcon
+      <CancelIcon
         aria-label='Press enter to clear your search'
         $inputValue={countryFilter}
         onClick={() => setCountryFilter('')}
@@ -136,5 +123,6 @@ export default SearchInput
 
 SearchInput.propTypes = {
   countryFilter: PropTypes.string.isRequired,
-  setCountryFilter: PropTypes.func.isRequired
+  setCountryFilter: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired
 }

@@ -43,7 +43,7 @@ const CountriesGrid = styled.div`
 
 const defaultRegionFilterOption = 'Filter by Region'
 
-const IndexPage = ({ data, error }) => {
+const IndexPage = ({ data, error, theme }) => {
   const [regionFilter, setRegionFilter] = useState(defaultRegionFilterOption)
   const [countryFilter, setCountryFilter] = useState('')
 
@@ -84,7 +84,7 @@ const IndexPage = ({ data, error }) => {
   return (
     <>
       <InputAndFilterSection>
-        <SearchInput countryFilter={countryFilter} setCountryFilter={setCountryFilter}/>
+        <SearchInput countryFilter={countryFilter} setCountryFilter={setCountryFilter} theme={theme} />
         {filteredData.length
           ? <Dropdown
             onChange={setRegionFilter}
@@ -111,5 +111,6 @@ IndexPage.defaultProps = {
 
 IndexPage.propTypes = {
   data: PropTypes.array.isRequired,
-  error: PropTypes.object
+  error: PropTypes.object,
+  theme: PropTypes.object.isRequired,
 }

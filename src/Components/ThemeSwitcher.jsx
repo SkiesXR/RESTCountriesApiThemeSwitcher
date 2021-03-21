@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 // components
 import {ReactComponent as DarkThemeIcon} from '../Assets/Images/dark_theme.svg'
@@ -7,7 +7,7 @@ import {ReactComponent as LightThemeIcon} from '../Assets/Images/light_theme.svg
 import useTheme from '../Hooks/useTheme'
 // utils
 import { getFromLS } from '../Utils/storage'
-import { FlexRowCenter, StyledIcon } from './Mixins'
+import { FlexRowCenter, StyledThemeIcon } from './Mixins'
 
 /* Styles Begin */
 
@@ -18,8 +18,8 @@ const ThemeSwitcherSection = styled.div `
     cursor: pointer;
   }
 `
-const LightIcon = StyledIcon(LightThemeIcon)
-const DarkIcon = StyledIcon(DarkThemeIcon)
+const LightIcon = StyledThemeIcon(LightThemeIcon)
+const DarkIcon = StyledThemeIcon(DarkThemeIcon)
 
 const ThemeTextWrapper = styled.span`
   text-transform: capitalize;

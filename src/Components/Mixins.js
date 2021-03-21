@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
 
 export const breakpoints = {
-  sm: '576px'
+  sm: '576px',
+  md: '850px'
 }
 
 export const FlexRowCenter = css`

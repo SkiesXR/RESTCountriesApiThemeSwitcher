@@ -5,12 +5,11 @@ A Frontend Mentor challenge I tackled in my spare time 👨‍💻 https://www.f
 ## Features
 
 - Data fetching from the REST Countries API
-- Theme Switching
 - Searching & filtering data
-- Support for keyboard navigation
-- Accessibilty in mind
-- Microinteractions
+- Theme Switching
 - 100% responsive across desktop, mobile, tablet
+- Support for keyboard navigation
+- Microinteractions
 
 ## Technologies
 
@@ -35,5 +34,3 @@ A Frontend Mentor challenge I tackled in my spare time 👨‍💻 https://www.f
 - Responsive design
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-

@@ -42,15 +42,28 @@ const ThemeSwitcher = ({ theme, setTheme }) => {
   const themeIcon = isLightTheme ? LightIcon : DarkIcon
   const themeText = isLightTheme ? `${light.name} Mode` : `${dark.name} Mode`
 
-  const switchThemes = (selectedTheme) => {
-    setMode(selectedTheme.name);
-    setTheme(selectedTheme);
+  const switchThemes = () => {
+    const newTheme = isLightTheme ? dark : light
+    setMode(newTheme.name)
+    setTheme(newTheme)
+  }
+
+  const handleKeyDown = (e) => {
+    e.key = 'Enter' && switchThemes()
   }
 
   return (
-    <ThemeSwitcherSection onClick={() => switchThemes(isLightTheme ? dark : light)}>
+    <ThemeSwitcherSection onClick={switchThemes}>
       {themeIcon}
-      <ThemeTextWrapper aria-label='Switch website color theme' role='button' tabIndex='0'>{themeText}</ThemeTextWrapper>
+      <ThemeTextWrapper
+        aria-label='Switch website color theme'
+        onKeyDown={handleKeyDown}
+        onMouseDown={(e) => e.preventDefault()}
+        role='button'
+        tabIndex='0'
+      >
+        {themeText}
+      </ThemeTextWrapper>
     </ThemeSwitcherSection>
   )
 }

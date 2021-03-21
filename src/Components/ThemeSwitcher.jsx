@@ -18,8 +18,8 @@ const ThemeSwitcherSection = styled.div `
     cursor: pointer;
   }
 `
-const LightIcon = StyledThemeIcon(LightThemeIcon)
-const DarkIcon = StyledThemeIcon(DarkThemeIcon)
+const LightIcon = StyledThemeIcon(LightThemeIcon, 'light')
+const DarkIcon = StyledThemeIcon(DarkThemeIcon, 'dark')
 
 const ThemeTextWrapper = styled.span`
   text-transform: capitalize;

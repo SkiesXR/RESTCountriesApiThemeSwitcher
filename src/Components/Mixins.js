@@ -32,15 +32,20 @@ export const FlexStartCenter = css`
 `
 
 const fadeUp = keyframes`
-  from { opacity: 0; transform: translateY(10%); };
+  from { opacity: 0; transform: translateY(50%); };
   to { opacity: 1; transform: translateY(0%); };
 `
 
-export const StyledThemeIcon = (icon) => {
+const fadeDown = keyframes`
+  from { opacity: 0; transform: translateY(-50%); };
+  to { opacity: 1; transform: translateY(0%); };
+`
+
+export const StyledThemeIcon = (icon, theme) => {
   const Icon = styled(icon)`
     ${uniformSize(25)};
     margin-right: 10px;
-    animation: ${fadeUp} .25s ease-in;
+    animation: ${theme === 'light' ? fadeUp : fadeDown} 1s cubic-bezier(0.16, 1, 0.3, 1);
   `
   return <Icon />
 }

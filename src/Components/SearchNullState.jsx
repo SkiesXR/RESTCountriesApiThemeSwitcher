@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import { breakpoints } from './Mixins'
 
 /* Styles Begin */
 
@@ -11,15 +12,19 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  margin-top: 5rem;
   display:  grid;
   place-items: center;
   animation: ${fadeIn} .25s ease-in;
+
+  @media (min-width: ${breakpoints.sm}) {
+    margin-top: 3rem;
+  }
 `
 
 const Header = styled.h1`
   color: ${({ theme }) => theme.color};
   margin-bottom: 1rem;
+  text-align: center;
 `
 
 const Message = styled.span`

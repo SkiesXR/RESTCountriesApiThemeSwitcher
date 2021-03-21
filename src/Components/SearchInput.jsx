@@ -51,7 +51,7 @@ const SearchIcon = styled(MagnifyingGlassIcon)`
   margin-right: 15px;
 
   * {
-    stroke: #dfdfdf;
+    stroke: ${({ theme }) => theme.color};
   }
 `
 

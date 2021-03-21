@@ -31,13 +31,33 @@ export const FlexStartCenter = css`
   justify-content: flex-start;
 `
 
-export const StyledIcon = (icon) => {
+export const StyledThemeIcon = (icon) => {
   const Icon = styled(icon)`
     ${uniformSize(25)};
     margin-right: 10px;
   `
   return <Icon />
+}
 
+export const StyledCancelIcon = (icon) => {
+  const Icon = styled(icon)`
+    width: 15px;
+    display: ${({ $inputValue }) => !$inputValue && 'none'};
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translate(-50%, -50%);
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    /* * {
+      stroke: #dfdfdf;
+    } */
+  `
+  return Icon
 }
 
 export const uniformSize = (size) => {

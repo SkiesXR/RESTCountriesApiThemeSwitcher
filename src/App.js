@@ -45,9 +45,6 @@ function App() {
 export default App;
 
 /* TODO:
-WRAPPING UP THE BASICS
-- Finalize icons
-- Fix theme-switching for icons
 
 OPTIONAL
 - Custom favicon

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Redirect, Route, HashRouter } from 'react-router-dom'
+import { Redirect, Route, HashRouter, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 // components
 import HeaderSection from './Components/HeaderSection'
@@ -10,6 +10,8 @@ import Loader from './Components/Loader'
 // hooks
 import useFetch from './Hooks/useFetch'
 import useTheme from './Hooks/useTheme'
+// utils
+import { HOME_ROUTE } from './constants'
 
 function App() {
   const {theme, themeLoaded} = useTheme()
@@ -20,9 +22,11 @@ function App() {
   useEffect(() => {
     const routes = (
       <HashRouter>
-        <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
-        <Route exact path='/'><IndexPage data={data} error={error} theme={selectedTheme} /></Route>
-        <Redirect to={{ pathname: '/' }}/>
+        <Switch>
+          <Route exact path='/detail/:id'><DetailPage data={data} error={error} /></Route>
+          <Route exact path={HOME_ROUTE}><IndexPage data={data} error={error} theme={selectedTheme} /></Route>
+          <Redirect to={{ pathname: HOME_ROUTE }}/>
+        </Switch>
       </HashRouter>
     )
 

@@ -7,6 +7,7 @@ import CountryDetailsGrid from './CountryDetailsGrid'
 import ErrorMessage from './ErrorMessage'
 import { ReactComponent as BackArrow } from '../Assets/Images/arrow_back.svg'
 // utils
+import { HOME_ROUTE } from '../constants'
 import { breakpoints, FlexColCenter, FlexColStart, FlexRowCenter, FlexStartCenter, uniformSize } from './Mixins'
 
 /* Styles Begin */
@@ -200,12 +201,14 @@ const DetailPage = ({ data, error }) => {
   }, [data])
 
   useEffect(() => {
-    if (data) {
-      const country = data.find(country => country.numericCode === id)
+    if (data.length) {
+      const matchedCountry = data.find(country => country.numericCode === id)
 
-      if (country) {
-        setCountry(country)
-        setBorderCountries(generateBorderCountries(country))
+      if (matchedCountry) {
+        setCountry(matchedCountry)
+        setBorderCountries(generateBorderCountries(matchedCountry))
+      } else {
+        history.push(HOME_ROUTE)
       }
     }
   }, [data, generateBorderCountries, id])
@@ -233,8 +236,8 @@ const DetailPage = ({ data, error }) => {
   return (
     <Container>
       <Button
-        onClick={() => history.push('/')}
-        onKeyDown={(e) => e.key === 'Enter' && history.push('/')}
+        onClick={() => history.push(HOME_ROUTE)}
+        onKeyDown={(e) => e.key === 'Enter' && history.push(HOME_ROUTE)}
         onMouseDown={(e) => e.preventDefault()}
         tabIndex='0'
         role='button'

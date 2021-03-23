@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // components
@@ -27,29 +26,23 @@ const AppNameText = styled.h3`
   user-select: none;
 
   &:focus { outline: ${({ theme }) => theme.focusColor}; }
-  &:hover { cursor: pointer; }
 `
 
 /* Styles End */
 
-const HeaderSection = ({ theme, setTheme }) => {
-  const history = useHistory()
-
-  return (
-    <Container>
-      <AppNameText
-        aria-label='Index page'
-        onClick={() => history.push('/')}
-        onMouseDown={(e) => e.preventDefault()}
-        role='link'
-        tabIndex='0'
-      >
-        Where in the world?
-      </AppNameText>
-      <ThemeSwitcher theme={theme} setTheme={setTheme}/>
-    </Container>
-  )
-}
+const HeaderSection = ({ theme, setTheme }) => (
+  <Container>
+    <AppNameText
+      aria-label='Index page'
+      onMouseDown={(e) => e.preventDefault()}
+      role='link'
+      tabIndex='0'
+    >
+      Where in the world?
+    </AppNameText>
+    <ThemeSwitcher theme={theme} setTheme={setTheme}/>
+  </Container>
+)
 
 export default HeaderSection
 
